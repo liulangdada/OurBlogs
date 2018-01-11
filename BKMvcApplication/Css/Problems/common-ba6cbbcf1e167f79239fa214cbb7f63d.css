@@ -1,0 +1,74 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dd,
+p {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-family: 'Microsoft YaHei'; }
+
+body {
+  background: #f7f7f7;
+  font-family: 'Microsoft YaHei';
+  font-size: 12px; }
+
+.clearfix:after {
+  content: '.';
+  height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both; }
+
+.csdn-toolbar .container {
+  width: 1170px; }
+
+#notify-center .csdn-toolbar .on .on-profile-icon .ft .pull-right {
+  margin-top: 0; }
+
+.csdn-toolbar .icon-cog:before {
+  content: none; }
+
+.csdn-toolbar .icon-signout:before {
+  content: none; }
+
+#csdn_divh .csdn_loginbox {
+  padding: 3px; }
+
+#csdn_divh .csdn_loginbox .login_content {
+  padding: 40px 82px;
+  border: solid 1px #cccccc; }
+
+#csdn_divh .csdn_loginbox .login_content .close {
+  box-sizing: border-box;
+  opacity: 1; }
+
+#csdn_divh .csdn_loginbox .login_content label {
+  display: inline; }
+
+#csdn_divh .csdn_loginbox .login_content label p {
+  padding: 4px 0 0 0; }
+
+#csdn_divh .csdn_loginbox .login_content label p input[type="checkbox"] {
+  margin: 0; }
+
+.main .bdsharebuttonbox .shareStyle {
+  display: block;
+  width: 15px;
+  height: 19px;
+  float: right;
+  background: url(/assets/share_icon-914deac98990164dfcafd4167e8d23bf.png) left center no-repeat; }
+
+.main .bdsharebuttonbox .shareStyle:hover {
+  background: url(/assets/share_icon_hover-d46d9667da5f133ee635c831aab549f5.png) no-repeat scroll left center rgba(0, 0, 0, 0); }
+
+.csdn-toolbar .logo .img {
+  background: url(/assets/f_name-5d98f9f5df7d56da61b066be694c19b7.png) left center no-repeat;
+  float: left;
+  height: 40px;
+  margin-left: 10px;
+  width: 120px; }

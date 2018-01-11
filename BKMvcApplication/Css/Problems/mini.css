@@ -1,0 +1,186 @@
+#mini {position: absolute;z-index:9990;width:266px;background-color: #fff;
+    border: 2px #DDDDDD solid;padding:0 15px 15px; box-shadow: 0px 2px 2px rgba(0,0,0,0.1);box-sizing:content-box;font-weight: normal !important;
+    -moz-box-sizing:content-box; /* Firefox */
+    -webkit-box-sizing:content-box; /* Safari */}
+#mini .jiantou{left: 15%; bottom: -12px; position: absolute; width: 0; height: 0;border-left: 14px solid transparent;border-right: 14px solid transparent; border-top: 12px solid #EAEAEA;}
+#mini .touxiang img{width: 50px !important;height:50px !important;}
+#mini .touxiang{float: left;width: 50px !important;height: 53px !important;margin-left: 0px ;margin-top: 0px !important;position: static !important;}
+#mini .person_info{float: left !important;margin-left: 11px  !important;width: 200px  !important;height:24px !important;background:#fff !important;text-overflow: ellipsis  !important;white-space: nowrap  !important;overflow: hidden  !important;box-sizing:content-box !important;
+    -moz-box-sizing:content-box  !important; /* Firefox */
+    -webkit-box-sizing:content-box  !important; /* Safari */}
+
+/*#mini .v_img{vertical-align: baseline;width:auto;height: auto}*/
+
+#mini .cto_img{vertical-align: baseline;width:25px;height:17px;}
+#mini .lector_img{vertical-align: baseline;width:55px;height:16px;}
+
+#mini .person_info .desc{float: right;margin-left: 30px;margin-top: -5px;}
+#mini .name{font-size: 18px !important;margin-top: 5px !important;color: #333333 !important;padding: 0 !important;}
+
+#mini .zhiwei{font-size: 12px !important;color: #333333!important; padding: 0 !important;margin: 0 !important;margin-left: 11px !important;}
+#mini .person_deliver_letter{background: none repeat scroll 0 0 #c7c7c7;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-right: 0;
+    display: inline-block;
+    right: 114px;
+    top: 23px;}
+#mini .person_deliver_letter_un{
+	background: none repeat scroll 0 0 #ececec;
+    color: #333;
+    cursor: pointer;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-right: 0;
+    display: inline-block;
+    right: 114px;
+    top: 23px;
+}
+#mini .person_deliver_letter_un i{
+	color:#e96f5d;
+	padding-right: 3px;
+}
+
+#mini .person_add_focus{ 
+	background: none repeat scroll 0 0 #ececec;margin-left: 9px;
+    color: #333;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-right: 0;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    display: inline-block;
+    right: 114px;
+    top: 23px;
+}
+
+#mini .person_add_focus i{
+	color:#79b51f;
+	padding-right: 3px;
+}
+
+
+#mini .visoter{color:#428bca !important;float:right !important;font-size: 14px !important;  text-decoration: none !important;margin-top: 5px !important;margin-bottom: 0 !important; margin-right: 0 !important;font-weight: normal !important;}
+a:link,a:visited,a:hover,a:focus{
+    text-decoration: none !important;
+}
+
+#content{
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap:break-word;
+    word-break:break-all;
+    color: #999;
+    height: 35px;
+    font-weight: normal;
+}
+
+#mini dl{
+    padding-bottom: 8px !important;
+    margin-bottom: 6px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    border-bottom: 1px solid #ddd !important;
+    border-top:none !important;
+    width: 266px !important;
+    overflow: hidden;
+    margin-top:12px !important;
+    box-sizing:content-box;
+    -moz-box-sizing:content-box; /* Firefox */
+    -webkit-box-sizing:content-box; /* Safari */
+}
+
+
+#mini dl .medals{width:268px; height: 24px; position:relative; float: left; margin-left: 0px; margin-top: 5px; overflow: hidden;}
+#mini dl .medals ul{margin: 0px; padding: 0px; overflow: hidden; width:300px; position: absolute; left: 0px; top: 0px; z-index:9991}
+#mini dl .medals .scroll_btn_con{width:29px; height:24px; background-color:#fff; position: absolute; right: 0px; top: 0px; z-index:9992}
+#mini dl .medals .scroll_btn_con .scroll_left{display: block; float: right; width:5px; height: 8px; background:url(left.jpg) left top no-repeat; margin-top: 8px; }
+#mini dl .medals .scroll_btn_con .scroll_left_disable{display: block; float: right; width:5px; height: 8px; background:url(left.jpg) left bottom no-repeat; margin-top: 8px; }
+
+#mini dl .medals .scroll_btn_con .scroll_right{display: block; float: right; width:5px; height: 8px; background:url(right.jpg) left top no-repeat; margin-top: 8px;margin-left:3px;}
+
+#mini dl .medals .scroll_btn_con .scroll_right_disable{display: block; float: right; width:5px; height: 8px; background:url(right.jpg) left bottom no-repeat; margin-top: 8px;margin-left:3px;}
+
+#mini dl .medals ul li{margin: 0px; padding: 0px;}
+
+#mini dl .medals .medal
+{
+    background: url("medal-icon.svg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    width: 21px;
+    height: 24px;    
+    margin-right:10px;   
+    vertical-align: middle;    
+}
+
+
+#mini dl .medals .m203 {
+    background-position: -155px 0;
+}
+#mini dl .medals .m204 {
+    background-position: -217px 0;
+}
+#mini dl .medals .m205 {
+    background-position: -186px 0;
+}
+#mini dl .medals .m206 {
+    background-position: -248px 0;
+}
+#mini dl .medals .m207 {
+    background-position: -279px 0;
+}
+#mini dl .medals .m208 {
+    background-position: -310px 0;
+}
+#mini dl .medals .m209 {
+    background-position: 0 0;
+}
+#mini dl .medals .m210 {
+    background-position: -31px 0;
+}
+#mini dl .medals .m211 {
+    background-position: -62px 0;
+}
+#mini dl .medals .m212 {
+    background-position: -124px 0;
+}
+#mini dl .medals .m213 {
+    background-position: -93px 0;
+}
+#mini dl .medals .m214 {
+    background-position: -403px 0;
+}
+#mini dl .medals .m301 {
+    background-position: -372px 0;
+}
+#mini dl .medals .m302 {
+    background-position: -496px 0;
+}
+#mini dl .medals .m304 {
+    background-position: -465px 0;
+}
+#mini dl .medals .m305 {
+    background-position: -527px 0;
+}
+#mini dl .medals .m306 {
+    background-position: -558px 0;
+}
+#mini dl .medals .m307 {
+    background-position: -341px 0;
+}

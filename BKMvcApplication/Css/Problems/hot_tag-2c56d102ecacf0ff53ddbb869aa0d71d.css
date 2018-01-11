@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+.hot_tags{background-color:#fff; overflow:hidden; border:1px solid #f0f0f0;margin-bottom: 10px;}
+.hot_tags h3{height:43px; line-height:43px;border-bottom:1px solid #f0f0f0;}
+.hot_tags h3 span{ font-size:18px; font-weight:normal; display:block;  height:43px; line-height:43px; float:left; margin-left:20px;}
+.hot_tags h3 a{display:block; float:right; font-size:14px; color:#666; margin-right:20px;}
+.hot_tags h3 a:hover{color:#2b81a9; text-decoration:none;}
+.hot_tags_list{ overflow:hidden; margin:10px 20px;}
+.hot_tags_list a{ display:block; height:36px; line-height:36px; float:left; color:#666; font-size:14px; margin-right:15px;}
+.hot_tags_list a em{ font-style:normal; color:#2b81a9;}
+.hot_tags_list a:hover{color:#2b81a9; text-decoration:none;}
