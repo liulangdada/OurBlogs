@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BKModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BKEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Album" EntityType="BKModel.Album" />
+    <EntitySet Name="Answer" EntityType="BKModel.Answer" />
+    <EntitySet Name="Articles" EntityType="BKModel.Articles" />
+    <EntitySet Name="BlogPaperComments" EntityType="BKModel.BlogPaperComments" />
+    <EntitySet Name="BlogPaperReply" EntityType="BKModel.BlogPaperReply" />
+    <EntitySet Name="BlogPaperType" EntityType="BKModel.BlogPaperType" />
+    <EntitySet Name="ConsumptionType" EntityType="BKModel.ConsumptionType" />
+    <EntitySet Name="Head" EntityType="BKModel.Head" />
+    <EntitySet Name="ImageIndex" EntityType="BKModel.ImageIndex" />
+    <EntitySet Name="Integral" EntityType="BKModel.Integral" />
+    <EntitySet Name="IntegralRecord" EntityType="BKModel.IntegralRecord" />
+    <EntitySet Name="Problems" EntityType="BKModel.Problems" />
+    <EntitySet Name="Problems_Type" EntityType="BKModel.Problems_Type" />
+    <EntitySet Name="PublishBlogPaper" EntityType="BKModel.PublishBlogPaper" />
+    <EntitySet Name="UserDetail" EntityType="BKModel.UserDetail" />
+    <EntitySet Name="UserInfo" EntityType="BKModel.UserInfo" />
+  </EntityContainer>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="alId" />
+    </Key>
+    <Property Name="alId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="alName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="alUrl" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="alDetailId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Answer_Id" />
+    </Key>
+    <Property Name="Answer_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Problems_Id" Type="Int32" />
+    <Property Name="Answer_UserId" Type="Int32" />
+    <Property Name="Answer_time" Type="DateTime" Precision="3" />
+    <Property Name="Answer_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Answer_agreeCount" Type="Int32" />
+    <Property Name="Answer_disagreeCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="aId" />
+    </Key>
+    <Property Name="aId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="aName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="aType" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+    <Property Name="aAuthor" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="aReleaseTime" Type="DateTime" Precision="3" />
+    <Property Name="aRemark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="aAmountOfAccess" Type="Int32" />
+    <Property Name="aCommentNum" Type="Int32" />
+    <Property Name="adId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BlogPaperComments">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Name="Comment_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="BlogPaper_Id" Type="Int32" />
+    <Property Name="Comments_Url" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Comments_Time" Type="DateTime" Precision="3" />
+    <Property Name="Comments_Agreements" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BlogPaperReply">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment_Id" Type="Int32" />
+    <Property Name="Reply_Id" Type="Int32" />
+    <Property Name="Reply_type" Type="Int32" />
+    <Property Name="Reply_Content" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+    <Property Name="From_Id" Type="Int32" />
+    <Property Name="To_Uid" Type="Int32" />
+    <Property Name="Reply_Time" Type="DateTime" Precision="3" />
+    <Property Name="Reply_Agreements" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BlogPaperType">
+    <Key>
+      <PropertyRef Name="PaperType_Id" />
+    </Key>
+    <Property Name="PaperType_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PaperType_TitleName" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ConsumptionType">
+    <Key>
+      <PropertyRef Name="CTid" />
+    </Key>
+    <Property Name="CTid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CTnamr" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Head">
+    <Key>
+      <PropertyRef Name="Head_Id" />
+    </Key>
+    <Property Name="Head_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Head_Title" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Head_Url" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ImageIndex">
+    <Key>
+      <PropertyRef Name="imgId" />
+    </Key>
+    <Property Name="imgId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="imgName" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+    <Property Name="imgUrl" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="imgRemark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Integral">
+    <Key>
+      <PropertyRef Name="Iid" />
+    </Key>
+    <Property Name="Iid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="Int32" />
+    <Property Name="oldTotal" Type="Int32" />
+    <Property Name="newTotal" Type="Int32" />
+    <Property Name="Consumption" Type="Int32" />
+  </EntityType>
+  <EntityType Name="IntegralRecord">
+    <Key>
+      <PropertyRef Name="IRid" />
+    </Key>
+    <Property Name="IRid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CTid" Type="Int32" />
+    <Property Name="Expenditure_id" Type="Int32" />
+    <Property Name="Income_id" Type="Int32" />
+    <Property Name="Transac" Type="Int32" />
+    <Property Name="IRtime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Problems">
+    <Key>
+      <PropertyRef Name="Problems_Id" />
+    </Key>
+    <Property Name="Problems_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Problems_Type_Id" Type="Int32" />
+    <Property Name="Problems_UserId" Type="Int32" />
+    <Property Name="Problems_Time" Type="DateTime" Precision="3" />
+    <Property Name="Problems_Title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Problems_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Problems_SeeCount" Type="Int32" />
+    <Property Name="Problems_CollectCount" Type="Int32" />
+    <Property Name="Problems_IsSolve" Type="Int32" />
+    <Property Name="Problems_Money" Type="Int32" />
+    <Property Name="Problems_BestAnswerId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Problems_Type">
+    <Key>
+      <PropertyRef Name="Problems_Type_Id" />
+    </Key>
+    <Property Name="Problems_Type_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Problems_Type_Name" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="PublishBlogPaper">
+    <Key>
+      <PropertyRef Name="BlogPaper_Id" />
+    </Key>
+    <Property Name="BlogPaper_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="PaperType_Id" Type="Int32" />
+    <Property Name="BlogPaper_TitleName" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="BlogPaper_PublishTime" Type="DateTime" Precision="3" />
+    <Property Name="BlogPaper_Contents" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="BlogPaper_Readings" Type="Int32" />
+    <Property Name="BlogPaper_Comments" Type="Int32" />
+    <Property Name="BlogPaper_Agreements" Type="Int32" />
+    <Property Name="BlogPaper_Opyright" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserDetail">
+    <Key>
+      <PropertyRef Name="Detail_Id" />
+    </Key>
+    <Property Name="Detail_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Detail_Name" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Detail_Sex" Type="Int32" />
+    <Property Name="Detail_Birthday" Type="DateTime" Precision="3" />
+    <Property Name="Detail_UserImg" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+    <Property Name="Detail_Position" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Detail_Region" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Detail_Region2" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Detail_Region3" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Detail_Industry" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Detail_SelfIntro" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserPhone" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+    <Property Name="UserPwd" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>

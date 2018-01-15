@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BKModelStoreContainer" CdmEntityContainer="BKEntities">
+    <EntitySetMapping Name="Album">
+      <EntityTypeMapping TypeName="BKModel.Album">
+        <MappingFragment StoreEntitySet="Album">
+          <ScalarProperty Name="alId" ColumnName="alId" />
+          <ScalarProperty Name="alName" ColumnName="alName" />
+          <ScalarProperty Name="alUrl" ColumnName="alUrl" />
+          <ScalarProperty Name="alDetailId" ColumnName="alDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Answer">
+      <EntityTypeMapping TypeName="BKModel.Answer">
+        <MappingFragment StoreEntitySet="Answer">
+          <ScalarProperty Name="Answer_Id" ColumnName="Answer_Id" />
+          <ScalarProperty Name="Problems_Id" ColumnName="Problems_Id" />
+          <ScalarProperty Name="Answer_UserId" ColumnName="Answer_UserId" />
+          <ScalarProperty Name="Answer_time" ColumnName="Answer_time" />
+          <ScalarProperty Name="Answer_Content" ColumnName="Answer_Content" />
+          <ScalarProperty Name="Answer_agreeCount" ColumnName="Answer_agreeCount" />
+          <ScalarProperty Name="Answer_disagreeCount" ColumnName="Answer_disagreeCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="BKModel.Articles">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="aId" ColumnName="aId" />
+          <ScalarProperty Name="aName" ColumnName="aName" />
+          <ScalarProperty Name="aType" ColumnName="aType" />
+          <ScalarProperty Name="aAuthor" ColumnName="aAuthor" />
+          <ScalarProperty Name="aReleaseTime" ColumnName="aReleaseTime" />
+          <ScalarProperty Name="aRemark" ColumnName="aRemark" />
+          <ScalarProperty Name="aAmountOfAccess" ColumnName="aAmountOfAccess" />
+          <ScalarProperty Name="aCommentNum" ColumnName="aCommentNum" />
+          <ScalarProperty Name="adId" ColumnName="adId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPaperComments">
+      <EntityTypeMapping TypeName="BKModel.BlogPaperComments">
+        <MappingFragment StoreEntitySet="BlogPaperComments">
+          <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="BlogPaper_Id" ColumnName="BlogPaper_Id" />
+          <ScalarProperty Name="Comments_Url" ColumnName="Comments_Url" />
+          <ScalarProperty Name="Comments_Time" ColumnName="Comments_Time" />
+          <ScalarProperty Name="Comments_Agreements" ColumnName="Comments_Agreements" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPaperReply">
+      <EntityTypeMapping TypeName="BKModel.BlogPaperReply">
+        <MappingFragment StoreEntitySet="BlogPaperReply">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+          <ScalarProperty Name="Reply_Id" ColumnName="Reply_Id" />
+          <ScalarProperty Name="Reply_type" ColumnName="Reply_type" />
+          <ScalarProperty Name="Reply_Content" ColumnName="Reply_Content" />
+          <ScalarProperty Name="From_Id" ColumnName="From_Id" />
+          <ScalarProperty Name="To_Uid" ColumnName="To_Uid" />
+          <ScalarProperty Name="Reply_Time" ColumnName="Reply_Time" />
+          <ScalarProperty Name="Reply_Agreements" ColumnName="Reply_Agreements" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPaperType">
+      <EntityTypeMapping TypeName="BKModel.BlogPaperType">
+        <MappingFragment StoreEntitySet="BlogPaperType">
+          <ScalarProperty Name="PaperType_Id" ColumnName="PaperType_Id" />
+          <ScalarProperty Name="PaperType_TitleName" ColumnName="PaperType_TitleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumptionType">
+      <EntityTypeMapping TypeName="BKModel.ConsumptionType">
+        <MappingFragment StoreEntitySet="ConsumptionType">
+          <ScalarProperty Name="CTid" ColumnName="CTid" />
+          <ScalarProperty Name="CTnamr" ColumnName="CTnamr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Head">
+      <EntityTypeMapping TypeName="BKModel.Head">
+        <MappingFragment StoreEntitySet="Head">
+          <ScalarProperty Name="Head_Id" ColumnName="Head_Id" />
+          <ScalarProperty Name="Head_Title" ColumnName="Head_Title" />
+          <ScalarProperty Name="Head_Url" ColumnName="Head_Url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageIndex">
+      <EntityTypeMapping TypeName="BKModel.ImageIndex">
+        <MappingFragment StoreEntitySet="ImageIndex">
+          <ScalarProperty Name="imgId" ColumnName="imgId" />
+          <ScalarProperty Name="imgName" ColumnName="imgName" />
+          <ScalarProperty Name="imgUrl" ColumnName="imgUrl" />
+          <ScalarProperty Name="imgRemark" ColumnName="imgRemark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Integral">
+      <EntityTypeMapping TypeName="BKModel.Integral">
+        <MappingFragment StoreEntitySet="Integral">
+          <ScalarProperty Name="Iid" ColumnName="Iid" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="oldTotal" ColumnName="oldTotal" />
+          <ScalarProperty Name="newTotal" ColumnName="newTotal" />
+          <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegralRecord">
+      <EntityTypeMapping TypeName="BKModel.IntegralRecord">
+        <MappingFragment StoreEntitySet="IntegralRecord">
+          <ScalarProperty Name="IRid" ColumnName="IRid" />
+          <ScalarProperty Name="CTid" ColumnName="CTid" />
+          <ScalarProperty Name="Expenditure_id" ColumnName="Expenditure_id" />
+          <ScalarProperty Name="Income_id" ColumnName="Income_id" />
+          <ScalarProperty Name="Transac" ColumnName="Transac" />
+          <ScalarProperty Name="IRtime" ColumnName="IRtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Problems">
+      <EntityTypeMapping TypeName="BKModel.Problems">
+        <MappingFragment StoreEntitySet="Problems">
+          <ScalarProperty Name="Problems_Id" ColumnName="Problems_Id" />
+          <ScalarProperty Name="Problems_Type_Id" ColumnName="Problems_Type_Id" />
+          <ScalarProperty Name="Problems_UserId" ColumnName="Problems_UserId" />
+          <ScalarProperty Name="Problems_Time" ColumnName="Problems_Time" />
+          <ScalarProperty Name="Problems_Title" ColumnName="Problems_Title" />
+          <ScalarProperty Name="Problems_Content" ColumnName="Problems_Content" />
+          <ScalarProperty Name="Problems_SeeCount" ColumnName="Problems_SeeCount" />
+          <ScalarProperty Name="Problems_CollectCount" ColumnName="Problems_CollectCount" />
+          <ScalarProperty Name="Problems_IsSolve" ColumnName="Problems_IsSolve" />
+          <ScalarProperty Name="Problems_Money" ColumnName="Problems_Money" />
+          <ScalarProperty Name="Problems_BestAnswerId" ColumnName="Problems_BestAnswerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Problems_Type">
+      <EntityTypeMapping TypeName="BKModel.Problems_Type">
+        <MappingFragment StoreEntitySet="Problems_Type">
+          <ScalarProperty Name="Problems_Type_Id" ColumnName="Problems_Type_Id" />
+          <ScalarProperty Name="Problems_Type_Name" ColumnName="Problems_Type_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PublishBlogPaper">
+      <EntityTypeMapping TypeName="BKModel.PublishBlogPaper">
+        <MappingFragment StoreEntitySet="PublishBlogPaper">
+          <ScalarProperty Name="BlogPaper_Id" ColumnName="BlogPaper_Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PaperType_Id" ColumnName="PaperType_Id" />
+          <ScalarProperty Name="BlogPaper_TitleName" ColumnName="BlogPaper_TitleName" />
+          <ScalarProperty Name="BlogPaper_PublishTime" ColumnName="BlogPaper_PublishTime" />
+          <ScalarProperty Name="BlogPaper_Contents" ColumnName="BlogPaper_Contents" />
+          <ScalarProperty Name="BlogPaper_Readings" ColumnName="BlogPaper_Readings" />
+          <ScalarProperty Name="BlogPaper_Comments" ColumnName="BlogPaper_Comments" />
+          <ScalarProperty Name="BlogPaper_Agreements" ColumnName="BlogPaper_Agreements" />
+          <ScalarProperty Name="BlogPaper_Opyright" ColumnName="BlogPaper_Opyright" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDetail">
+      <EntityTypeMapping TypeName="BKModel.UserDetail">
+        <MappingFragment StoreEntitySet="UserDetail">
+          <ScalarProperty Name="Detail_Id" ColumnName="Detail_Id" />
+          <ScalarProperty Name="Detail_Name" ColumnName="Detail_Name" />
+          <ScalarProperty Name="Detail_Sex" ColumnName="Detail_Sex" />
+          <ScalarProperty Name="Detail_Birthday" ColumnName="Detail_Birthday" />
+          <ScalarProperty Name="Detail_UserImg" ColumnName="Detail_UserImg" />
+          <ScalarProperty Name="Detail_Position" ColumnName="Detail_Position" />
+          <ScalarProperty Name="Detail_Region" ColumnName="Detail_Region" />
+          <ScalarProperty Name="Detail_Region2" ColumnName="Detail_Region2" />
+          <ScalarProperty Name="Detail_Region3" ColumnName="Detail_Region3" />
+          <ScalarProperty Name="Detail_Industry" ColumnName="Detail_Industry" />
+          <ScalarProperty Name="Detail_SelfIntro" ColumnName="Detail_SelfIntro" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="BKModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

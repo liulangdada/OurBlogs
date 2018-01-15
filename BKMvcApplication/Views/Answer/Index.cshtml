@@ -1,0 +1,707 @@
+﻿@{
+    ViewBag.Title = "Index";
+    //根据问题编号得到的数据
+    BKMvcApplication.Models.Problems Problems = ViewBag.Problems;
+
+    //得到所有答案
+    List<BKMvcApplication.Models.Answer> AnswerList = ViewBag.AnswerList as List<BKMvcApplication.Models.Answer>;
+                        
+                    
+}
+
+
+<head>
+    <script src="~/Js/Answer/jquery-1.8.3.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>@Problems.Problems_Title——Blogs频道</title>
+    <meta content="![代码图](~/Img/Answer/1515640882_421549.png) ![警告图](~/Img/Answer/1515640920_126022.png) ![运行结果](Img/1515641198_38201.png) 如果把代码中的long double 替换成double且%Lf替换..." name="description" />
+    <meta content="c语言" name="keywords" />
+    <link href="http://c.csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//avatar.profile.csdn.net">
+    <link rel="dns-prefetch" href="//my.csdn.net">
+    <link rel="canonical" href="http://ask.csdn.net/questions/677550" />
+
+
+    <link href="~/Css/Answer/ask_index_A-d4a5814df2157675455162a49e96a0a0.css" media="screen" rel="stylesheet" />
+    <link href="~/Css/Answer/ask_question_detail-64054bf684bcef8c63c5528a3814343b.css" media="screen" rel="stylesheet" />
+    <link href="~/Css/Answer/ask_question_detail-64054bf684bcef8c63c5528a3814343b.css" rel="stylesheet" />
+    <link href="~/Css/Answer/bootstrap.css" media="all" rel="stylesheet" />
+    <link href="~/Css/Answer/avatar.css" media="all" rel="stylesheet" />
+    <link href="~/Css/Answer/btn.css" media="all" rel="stylesheet" />
+    <link href="~/Css/Answer/icon.css" media="all" rel="stylesheet" />
+    <link href="~/Css/Answer/pagination.css" media="all" rel="stylesheet" />
+
+    <link href="~/Css/Answer/content_toolbar.css" media="all" rel="stylesheet" />
+
+    <link href="~/Css/Answer/mini.css" media="all" rel="stylesheet" />
+    <link href="~/Css/Answer/font-awesome.min-c873246088eb5658d2a1379d3c334280.css" media="screen" rel="stylesheet" />
+    <!-- [if IE 7]-->
+    <link href="~/Css/Answer/font-awesome-ie7.min-1e0b217d7be56bd5d291e36d59e3f90f.css" media="screen" rel="stylesheet" />
+    <link href="~/Css/Answer/pub_footer_2014.css" rel="stylesheet" />
+    <!-- [endif]-->
+    <!--[if lte IE 7]>
+	<style>
+	  .outer{position:relative;}
+	  .middle{position: absolute; top: 50%;}
+	  .inner{position: relative; top:-50%}
+	</style>
+	<![endif]-->
+
+    <link href="~/Css/Answer/common-ba6cbbcf1e167f79239fa214cbb7f63d.css" media="screen" rel="stylesheet" />
+    <link href="~/Css/Answer/ask_float_block-505f0ef9e74e8998a10227960fc7e1cc.css" media="screen" rel="stylesheet" />
+    <link href="~/Css/Answer/editor-1f4b5f7eb599b4f68f6787c0cce7b807.css" media="screen" rel="stylesheet" />
+
+    <script src="~/Js/Answer/application-5a64f9f68243804209e4c74dc29d04e1.js"></script>
+
+    <script src="~/Js/Answer/jquery-1.11.1.min-941027de4d6e4d3fb368648dcb350631.js"></script>
+    <script src="~/Js/Answer/bootstrap.min-161e87582a690d911b28d3fc784f0c3b.js"></script>
+    <!-- [if lt IE 9]-->
+    <script src="~/Js/Answer/html5shiv.min-eb0385a8a3205e157d275304e2e971bb.js"></script>
+    <!-- [endif]-->
+
+    <script src="~/Js/Answer/mini.js"></script>
+    <script src="~/Js/Answer/dscroll-359a02d82eefd771a0ccbf5a863e7675.js"></script>
+    <script src="~/Js/Answer/cnick.js"></script>
+
+
+
+    <script src="~/Js/Answer/wmd.js"></script>
+    <script src="~/Js/Answer/showdown.js"></script>
+    <script src="~/Js/Answer/prettify.js"></script>
+
+    <script src="~/Js/Answer/marked-6eb29a3195faf2eaa4bde60df81d9233.js"></script>
+    <script src="~/Js/Answer/editor-5ba0f2dea7f1c20df0ca9b0877b4f54f.js"></script>
+
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="Nw86rSZxwUlUZSir7hKc7htd4+IhDr2UANdBFefxt14=" name="csrf-token" />
+    <script language="javascript" type="text/javascript" src="~/Js/Answer/tracking-1.0.0.js"></script>
+</head>
+<body id='questions-show'>
+
+
+
+
+    <style>
+        .news-nav {
+            background: #eaebec;
+            MARGIN-BOTTOM: 10px;
+            HEIGHT: 44px;
+            CLEAR: both;
+            OVERFLOW: visible;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            font-size: 15px;
+            color: #4f4f4f;
+            line-height: 20px;
+        }
+
+        #ad_0 {
+            MARGIN-BOTTOM: 10px;
+        }
+
+        .news-nav .container {
+            MARGIN: 0px auto;
+            width: 1170px;
+            FONT-FAMILY: "Microsoft YaHei";
+            padding: 0;
+        }
+
+        .nav-bar {
+            font-size: 16px;
+            color: #fff;
+            float: left;
+        }
+
+            .nav-bar a {
+                padding: 0;
+                display: inline-block;
+                line-height: 44px;
+                margin-right: 32px;
+                color: #4f4f4f;
+                text-decoration: none;
+                font-family: "Microsoft YaHei";
+            }
+
+                .nav-bar .current, .nav-bar .active, .nav-bar a:hover {
+                    position: relative;
+                    border: none;
+                }
+
+                    .nav-bar .current::after,
+                    .nav-bar .active::after,
+                    .nav-bar a:hover::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        height: 3px;
+                        left: 0;
+                        right: 0;
+                        background-color: #c92027;
+                    }
+
+
+        .search-download {
+            float: right;
+            margin-top: 11px;
+        }
+
+            .search-download form {
+                float: left;
+                border: 1px solid #ddd;
+            }
+
+            .search-download input {
+                /* border:solid 1px #ddd;
+    border-right:none; */
+                border: none;
+                height: 26px;
+                line-height: 22px;
+                padding: 0 10px;
+                margin-right: -5px;
+                width: 229px;
+            }
+
+            .search-download .download-search-bth {
+                background: url(http://c.csdnimg.cn/public/common/toolbar/images/f_icon.png) no-repeat 0 -189px;
+                display: inline-block;
+                border: none;
+                width: 22px;
+                height: 26px;
+                vertical-align: middle;
+                padding-right: 2px;
+                background-color: #fff;
+            }
+
+            .search-download .help {
+                float: left;
+                margin: 3px 0 0 20px;
+                font-size: 15px;
+                color: #4f4f4f;
+                line-height: 20px;
+            }
+
+                .search-download .help .fa {
+                    margin-right: 5px;
+                }
+
+        .nav-bar a {
+            text-decoration: none;
+        }
+
+            .nav-bar a:hover {
+                text-decoration: none;
+                color: #4f4f4f;
+            }
+    </style>
+    <div class="news-nav">
+        <div class="container clearfix">
+            <div class="nav-bar">
+                <a href="http://my.csdn.net/my/mycsdn">首页</a>
+                <a class="current" href="http://ask.csdn.net/">技术问答</a>
+                <a href="http://my.csdn.net">个人主页</a>
+                <a href="http://msg.csdn.net">消息中心</a>
+                <a href="http://my.csdn.net/my/score">我的C币</a>
+                <a class="" href="/subjects">专家问答</a>
+                <a href="javascript:void(0);" class="ask_tips_box" id="float_ask_img1">我要提问</a>
+            </div>
+            <div class="search-download">
+                <a class="help" href="http://ask.csdn.net/help" target="_blank">
+                    <i class="fa fa-question-circle"></i>问答帮助
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main clearfix">
+        <div style="margin-bottom: 10px;">
+            <!-- 页顶广告 -->
+            <ins data-revive-zoneid="153" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+        </div>
+
+        <div class="persional_property">
+            <div class="second_nav_con">
+                <dl class="second_nav">
+                    <dd class="active">
+                        <a href="http://ask.csdn.net/">全部问答</a>
+                    </dd>
+                    <dd class="">
+                        <a href="http://ask.csdn.net/questions?type=unsolved">待回答</a>
+                    </dd>
+
+                    <dd class="">
+                        <a href="http://ask.csdn.net/questions?type=resolved">已解决</a>
+                    </dd>
+                    <dd class="">
+                        <a href="http://ask.csdn.net/tags?type=category">标签</a>
+                    </dd>
+                    <dd class="">
+                        <a href="http://ask.csdn.net/subjects">专家问答</a>
+                    </dd>
+                </dl>
+                <dl class="second_tips">
+                    <dd class="ask_tips" style="padding-right: 0; margin-right: 0; border-right: 0">
+                        <div class="tracking-ad" data-mod="popu_64" chg-blk="0">
+                            <a class="ask_tips_box" href="javascript:void(0);" id="float_ask_img">
+                                <i class="icon-plus"></i>我要提问
+                            </a>
+                        </div>
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="persion_section">
+
+            @* 回答框架 *@
+            <div>
+                <script id="editor" type="text/plain" style="width: 100%; height: 350px;"></script>
+            </div>
+
+            @* 显示评论 *@
+            <div class="common_con clearfix">
+
+                <div class="q_operate">
+                    <p>
+                        <a href="" target="_blank">
+                            <img alt="2 suchunyu1999" class="csdn-avatar50" src="~/Img/Answer/3_caozhy.jpg" style="width: 35px; height: 35px;" title="suchunyu1999" username="suchunyu1999" /></a>
+                        <span><a class="user_name" href="" target="_blank">@ViewBag.UserName</a>&nbsp;于 @Problems.Problems_Time 提问</span>
+                    </p>
+                </div>
+
+                <div class="questions_detail_con">
+                    <dl>
+                        <dt>@Problems.Problems_Title
+                        </dt>
+                        <div class="tags">
+
+
+                            <a href="" target="_blank">@ViewBag.TypeName</a>
+
+
+                        </div>
+                        <dd>
+                            @* ============================以下是所有内容代码 应从数据库查询出来================================================ *@
+                            <p>
+                                <a href="~/Img/Answer/1515640882_421549.png" target="_blank">
+                                    <img src="~/Img/Answer/1515640882_421549.png" alt="代码图" style="max-width: 100%;"></a><br>
+                                <a href="~/Img/Answer/1515640920_126022.png" target="_blank">
+                                    <img src="~/Img/Answer/1515640920_126022.png" alt="警告图" style="max-width: 100%;"></a><br>
+                                <a href="~/Img/Answer/1515641198_38201.png" target="_blank">
+                                    <img src="~/Img/Answer/1515641198_38201.png" alt="运行结果" style="max-width: 100%;"></a>
+                            </p>
+
+                            <p>
+                                如果把代码中的long double 替换成double且%Lf替换成%f运行结果是这样的<br>
+                                <a href="~/Img/Answer/1515641255_924444.png" target="_blank">
+                                    <img src="~/Img/Answer/1515641255_924444.png" alt="修改后运行结果" style="max-width: 100%;"></a>
+                            </p>
+
+                            <p>查过资料%Lf应该是合法的，但是总是出现警告。%lld也会出现类似警告。实在不知道为什么？</p>
+                        </dd>
+                    </dl>
+
+                </div>
+
+
+                <div class="share_bar_con share_bar_con_01" id="question_677550">
+
+                    <a class="collection" href="javascript:;">浏览 @Problems.Problems_SeeCount</a>
+                    <span class="interval">|</span>
+
+                    <a class="collection" data-method="post" data-remote="true" href="http://ask.csdn.net/collections?item_id=677550&amp;item_type=Question" rel="nofollow" title="收藏">收藏 @Problems.Problems_CollectCount
+                    </a>
+                    <span class="interval">|</span>
+
+                    <a class="browse report" data-method="post" data-remote="true" href="http://ask.csdn.net/questions/677550/report" rel="nofollow" title="举报">举报</a>
+
+                    <!--<span class="interval">|</span>-->
+
+                </div>
+
+                <!--<div class="answer_jump"><a href="#answer_form">我要回答</a></div>-->
+            </div>
+
+            <div class="common_con clearfix">
+                <div class="answer_sort_con  q_operate">
+                    <p>@AnswerList.Count 个回答</p>
+                    <div class="sort_style operate_style">
+                        <div class="sort_label">
+                            按赞数排序<i class="icon-caret-down"></i>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/questions/677550?sort=id">时间排序</a>
+
+                            </li>
+                            <li>
+                                <a href="/questions/677550?sort=comments_count">评论数排序</a>
+
+                            </li>
+                            <li>
+                                <a href="/questions/677550?sort=votes_count">按赞数排序</a>
+                            </li>
+                            <li class="arrow"></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <div class="answer_list">
+
+                    <script>
+                        $(function () {
+                            $(".collection_z").click(function () {
+                                //得到回答编号
+                                var Answer_UserId = $(this).attr("Answer_UserId");
+                                //让这个用户id对应的评论框显示
+                                //先判断是否已经显示 显示变为隐藏 隐藏变为显示
+                                //alert($("#answer_520574_comments_" + Answer_UserId).hasClass("dis"));
+                                var div = document.getElementById("answer_520574_comments");
+                                if (div.style.display == "none") {
+                                    div.style.display = "block";
+                                }
+                                else {
+                                    div.style.display = "none";
+                                }
+                            })
+                        })
+
+                    </script>
+
+
+
+
+
+
+
+
+
+
+
+                    @* ==========================最佳答案(需判断是否有最佳答案)===================================================== *@
+                    @{
+                        BKMvcApplication.Models.BKEntities BKEntity = new BKMvcApplication.Models.BKEntities();
+                        if (Problems.Problems_BestAnswerId != 0)
+                        {
+                            BKMvcApplication.Models.Answer Answer = AnswerList.Where(a => a.Answer_Id == Problems.Problems_BestAnswerId).FirstOrDefault();
+                            string UserName = BKEntity.UserInfo.Where(a => a.UserId == Answer.Answer_UserId).FirstOrDefault().UserName;
+                            //再去掉最佳答案
+                            AnswerList.Remove(Answer);
+                            
+                        <div class=" answer_accept" id='answer_519609'>
+                            <dl class="clearfix">
+                                <dt>
+                                    <a href="http://my.csdn.net/hduwuenhui" target="_blank">
+                                        <img alt="hduwuenhui" src="~/Img/Answer/3_hduwuenhui.jpg" style="width: 35px; height: 35px;" username="hduwuenhui" /></a>
+                                </dt>
+                                <dd class="answer_name">
+                                    @* =============================== 根据用户编号的到用户昵称========================================= *@
+                                    <a class="user_name" href="http://my.csdn.net/hduwuenhui" target="_blank">@UserName</a>&nbsp;&nbsp;<span class="adopt_time">@Answer.Answer_time</span>
+                                </dd>
+                                <dd class="has_accept">已采纳
+
+                                </dd>
+                            </dl>
+                            <div style="margin: 0 20px 10px; font-size: 14px; color: #666; line-height: 24px; word-break: break-all; word-wrap: break-word;">
+
+
+                                @* ====================显示最佳答案的内容======================================== *@
+                                @*      <p>
+                                    关于long double，在原始的C标准中是没有这个类型的，C99中才添加了该类型。
+                                而在C99及后续的规范中，对于该类型规定的也并不详细，只是要求long double类
+                                型在精度上需要不少于double的精度。于是就出现了有的编译器不支持long double,
+                                 而支持的编译器在实现上也有所区别，目前常见的long double有占用8字节，10字节，
+                                12字节和16字节四种，但输出格式都是相同的%lf。 如果想知道使用的编译器是如何实现的
+                                ，可以用printf("%d", sizeof(long double));输出long double占用的空间值。<br>
+                                    应该是编译器的支持的问题,你这个long double估计和double是一样的.
+                                </p>*@
+                                @Html.Raw(Answer.Answer_Content)
+
+                            </div>
+
+                            <div class="share_bar_con share_bar_con_01">
+
+                                <a class="stamp" data-method="post" data-remote="true" href="http://ask.csdn.net/answers/519609/votes?type=down" rel="nofollow" title="烂答案，踩！">
+                                    <i class="icon-">踩</i>
+                                    <label>@Answer.Answer_disagreeCount</label>
+                                    <em class="no_help">没用</em>
+                                </a>
+                                <a class="praise" data-method="post" data-remote="true" href="http://ask.csdn.net/answers/519609/votes?type=up" rel="nofollow" title="好答案，顶！">
+                                    <i class="icon-">赞</i>
+                                    <label>@Answer.Answer_agreeCount</label>
+                                    <em class="agree">赞同</em>
+                                </a>
+
+
+                                <a class="collection collection_z" href="javascript:void(0);" Answer_UserId="@Answer.Answer_UserId" id='collection_519609'>评论0
+                                </a>
+
+
+                                <span class="interval interval_no">|</span>
+
+                                <a class="browse report" data-method="post" data-remote="true" href="http://ask.csdn.net/answers/519609/report" rel="nofollow" title="举报">举报</a>
+
+
+
+
+                            </div>
+
+                        </div>
+
+                            //==================      最佳答案的回复框         ========================================
+                        <div id="answer_520574_comments" style="display: none;">
+                            <div class="comment_pointer"><span></span></div>
+
+                            <div id="answer_520574_comment_box_con" class="comment_box_con" style="height: 73px;">
+                                <div class="comment_scroll_con">
+                                    <div id="answer_520574_comment_form_" class="comment_form">
+                                        <form accept-charset="UTF-8" class="new_answer_comment" data-remote="true" id="new_answer_comment_520574_" method="post" onsubmit="$('.reply_submit').attr('disabled',true);">
+                                            <div style="display: none">
+                                                <input name="utf8" type="hidden" value="✓">
+                                            </div>
+                                            <input class="reply_input" id="comment_520574_form_" name="answer_comment[body]" placeholder="回复 @UserName" type="text">
+                                            <input id="answer_comment_from_type_" name="answer_comment[from_type]" type="hidden" value="ask_channels">
+                                            <input type="button" value="评论" class="reply_submit reply_submit_@Answer.Answer_UserId">
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                                <div style="position: absolute; z-index: 999; right: 3px; top: 0px; border: 0px solid rgb(193, 193, 193); width: 8px; display: none;">
+                                    <div style="width: 8px; position: absolute; cursor: pointer; border-radius: 5px; top: 0px; background-color: rgb(215, 218, 217);"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        }
+                        
+                    }
+
+
+
+                    @* ========================================其他答案(去掉最佳答案)========================================= *@
+                    <script>
+                        $(function () {
+                            $(".collection_1").click(function () {
+                                //得到回答编号
+                                var Answer_UserId = $(this).attr("Answer_UserId");
+                                //让这个用户id对应的评论框显示
+                                //先判断是否已经显示 显示变为隐藏 隐藏变为显示
+                                //alert($("#answer_520574_comments_" + Answer_UserId).hasClass("dis"));
+                                var div = document.getElementById("answer_520574_comments_" + Answer_UserId);
+                                if (div.style.display == "none") {
+                                    div.style.display = "block";
+                                }
+                                else {
+                                    div.style.display = "none";
+                                }
+                            })
+                        })
+
+                    </script>
+
+                    @{
+                        int i = 0;
+                        foreach (var item in AnswerList)
+                        {
+
+                            string UserName = BKEntity.UserInfo.Where(a => a.UserId == item.Answer_UserId).FirstOrDefault().UserName;
+                           
+                            
+                        <div class="answer_detail_con" id='answer_519633_@i'>
+                            <dl class="clearfix">
+                                <dt>
+                                    <a href="#" target="_blank">
+                                        <img alt="qq_29195041" src="~/Img/Answer/3_qq_29195041.jpg" style="width: 35px; height: 35px;" username="qq_29195041" /></a>
+                                </dt>
+                                <dd class="answer_name">
+                                    <a class="user_name" target="_blank">@UserName</a>&nbsp;&nbsp;
+          <span class="adopt_time">@item.Answer_time</span>
+                                </dd>
+                                <dd class="is_accept"></dd>
+                            </dl>
+                            <div style="margin: 0 20px 10px; font-size: 14px; color: #666; line-height: 24px; word-break: break-all; word-wrap: break-word;">
+
+                                @Html.Raw(item.Answer_Content)
+                            </div>
+
+                            <div class="share_bar_con share_bar_con_01">
+
+                                <a class="stamp" data-method="post" data-remote="true" href="#" rel="nofollow" title="烂答案，踩！">
+                                    <i class="icon-">踩</i>
+                                    <label style="width: 30px;">@item.Answer_disagreeCount</label>
+                                    <em class="no_help">没用</em>
+                                </a>
+                                <a class="praise" data-method="post" data-remote="true" href="#" rel="nofollow" title="好答案，顶！">
+                                    <i class="icon-">赞</i>
+                                    <label>@item.Answer_agreeCount</label>
+                                    <em class="agree">赞同</em>
+                                </a>
+
+                                <a class="collection collection_1 " href="javascript:void(0);" Answer_UserId="@item.Answer_UserId" id='@item.Answer_Id'>评论 0
+                                </a>
+
+                                <span class="interval interval_no">|</span>
+
+                                <a class="browse report" data-method="post" data-remote="true" href="#" rel="nofollow" title="举报">举报</a>
+
+
+
+
+                            </div>
+
+
+                        </div>
+                        <div id="answer_520574_comments_@item.Answer_UserId" style="display:none;">
+                            <div class="comment_pointer"><span></span></div>
+
+                            <div id="answer_520574_comment_box_con_@i" class="comment_box_con" style="height: 73px;">
+                                <div class="comment_scroll_con">
+                                    <div id="answer_520574_comment_form" class="comment_form">
+                                        <form accept-charset="UTF-8" class="new_answer_comment" data-remote="true" id="new_answer_comment_520574" method="post" onsubmit="$('.reply_submit').attr('disabled',true);">
+                                            <div style="display: none">
+                                                <input name="utf8" type="hidden" value="✓">
+                                            </div>
+                                            <input class="reply_input" id="comment_520574_form" name="answer_comment[body]" placeholder="回复 @UserName" type="text">
+                                            <input id="answer_comment_from_type" name="answer_comment[from_type]" type="hidden" value="ask_channels">
+                                            <input type="button" value="评论" class="reply_submit reply_submit_@item.Answer_UserId">
+                                        </form>
+                                    </div>
+
+                                    @* ====================   评论下面的回复 （评论别人的回复）            ================================= *@
+                                    <dl id="answer_comment_190456">
+                                        <dt>
+                                            <a href="http://my.csdn.net/qq_37228683" target="_blanl">
+                                                <img alt="qq_37228683" src="http://avatar.csdn.net/F/B/9/3_qq_37228683.jpg" style="width: 30px; height: 30px;" username="qq_37228683">
+                                            </a></dt>
+                                        <dd class="comment_content">
+                                            <em><a class="user_name" href="http://my.csdn.net/qq_37228683" target="_blanlk">qq_37228683</a></em>
+                                            我将图片换成111.jpg可以读取得到，然后无法读取到img这个文件夹里面的CSS样式的图片，所以我将img这个文件夹的名字换成images这个文件名才能访问得到
+                                        </dd>
+                                        <dd class="comment_reply">
+                                            <span>大约 3 小时之前</span>
+                                            <a class="second_reply" href="javascript:void(0);" id="reply_520474_190456">回复</a>
+                                        </dd>
+                                    </dl>
+
+
+                                </div>
+                                <div style="position: absolute; z-index: 999; right: 3px; top: 0px; border: 0px solid rgb(193, 193, 193); width: 8px; display: none;">
+                                    <div style="width: 8px; position: absolute; cursor: pointer; border-radius: 5px; top: 0px; background-color: rgb(215, 218, 217);"></div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    }
+
+
+                    <div id="answer_519633_comments">
+                        <div class="comment_pointer"><span></span></div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+                <div style="padding: 0 20px;">
+                    <div class="mod_other_ask">
+                        <div class="other_ask">
+                            <dl>
+                                <dt>其他相关推荐</dt>
+                            </dl>
+                            <div class="mod_dl_box">
+                                <dl class="info_box clearfix">
+                                    <dd>
+                                        <a href="http://blog.csdn.net/u013213837/article/details/45644297" title="C语言---关于scanf读入字符串的一些问题" target="_blank" class="text_intro">C语言---关于scanf读入字符串的一些问题</a>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="popup_reported" class="popup_reported">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="persion_article">
+
+
+
+
+
+            <div class="mod_relevant_data">
+            </div>
+
+
+            <div class="mod_answer_ing">
+                <div class="mod_answer">
+                    <h3><a href="http://ask.csdn.net/sticks" target="_blank">导师推荐</a><a href="http://ask.csdn.net/mentors" class="apply_teacher" target="_blank">申请成为导师</a></h3>
+                    <div class="mod_dl_box mod_dl_box01">
+                        <div class="scrollcontent">
+                            <dl class="info_box info_box_choose clearfix">
+                                <dd class="mod_dl_dd">
+                                    <a class="user_name" href="http://my.csdn.net/caozhy" target="_blank">caozhy</a>&nbsp;
+          <span>推荐了：</span>
+                                    <a class="mod_dl_a" href="http://ask.csdn.net/questions/677256" target="_blank">各位大神，请教一个整合工具的方法问题</a>
+                                </dd>
+                            </dl>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <script src="~/Js/Answer/dscroll-359a02d82eefd771a0ccbf5a863e7675.js"></script>
+
+
+    </div>
+
+
+    <div id="popup_mask" class="marker"></div>
+    <div id="pop_win" style="position: absolute; background: none repeat scroll 0 0 #FFFFFF; z-index: 10000; border: 1px solid #DCDCDC;"></div>
+
+    <!-- script id="noticeScript" type="text/javascript" charset="utf-8" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" src="//c.csdnimg.cn/public/common/toolbar/js/notify.js"></script -->
+
+
+    <script src="~/Js/Answer/main-1.0.2.js?v1.15.221"></script>
+    <script src="~/Js/Answer/fuckadblock.js"></script>
+    <script src="~/Js/Answer/block.js"></script>
+    <script src="~/Js/Answer/jquery.form-970fa25a8fc7698f768416b39f738706.js"></script>
+    <script type="text/javascript" src="~/Js/Answer/publib_footer-1.0.2.js"></script>
+    <script id="csdn-toolbar-id" btnid="header_notice_num" wrapid="note1" count="5" subcount="5" type="text/javascript" src="~/Js/Answer/content_toolbar.js"></script>
+
+    <script src="~/Js/Answer/ask_float_block-a8cccd57e4e8fd8fca5dccc538ee88eb.js"></script>
+
+    <script type="text/javascript">
+        showMini(".help_peer_con,.technology_hot_person,.mod_glory_info,#scrolldiv,.hot_person_list,.tutor_list,.all_honnor_roll,.honnor_roll,.my_info");
+    </script>
+    <script language="javascript" type="text/javascript" src="~/Js/Answer/async-1.0.0.js"></script>
+
+</body>

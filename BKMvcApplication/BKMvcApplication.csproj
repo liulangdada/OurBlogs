@@ -39,10 +39,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -104,9 +110,80 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ProblemsController.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\Config.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\ConfigHandler.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\CrawlerHandler.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\Handler.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\ListFileHandler.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\NotSupportedHandler.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\PathFormater.cs" />
+    <Compile Include="content\utf8-net\net\App_Code\UploadHandler.cs" />
+    <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Album.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Answer.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Articles.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPaperComments.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPaperReply.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPaperType.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConsumptionType.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Head.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImageIndex.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Integral.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IntegralRecord.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Problems.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Problems_Type.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PublishBlogPaper.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDetail.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserInfo.cs">
+      <DependentUpon>BlogsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,76 +191,341 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="content\utf8-net\dialogs\anchor\anchor.html" />
+    <Content Include="content\utf8-net\dialogs\attachment\attachment.css" />
+    <Content Include="content\utf8-net\dialogs\attachment\attachment.html" />
+    <Content Include="content\utf8-net\dialogs\attachment\attachment.js" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_jpg.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\alignicon.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\alignicon.png" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\bg.png" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\file-icons.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\file-icons.png" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\icons.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\icons.png" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\image.png" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\progress.png" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\success.gif" />
+    <Content Include="content\utf8-net\dialogs\attachment\images\success.png" />
+    <Content Include="content\utf8-net\dialogs\background\background.css" />
+    <Content Include="content\utf8-net\dialogs\background\background.html" />
+    <Content Include="content\utf8-net\dialogs\background\background.js" />
+    <Content Include="content\utf8-net\dialogs\background\images\bg.png" />
+    <Content Include="content\utf8-net\dialogs\background\images\success.png" />
+    <Content Include="content\utf8-net\dialogs\charts\chart.config.js" />
+    <Content Include="content\utf8-net\dialogs\charts\charts.css" />
+    <Content Include="content\utf8-net\dialogs\charts\charts.html" />
+    <Content Include="content\utf8-net\dialogs\charts\charts.js" />
+    <Content Include="content\utf8-net\dialogs\charts\images\charts0.png" />
+    <Content Include="content\utf8-net\dialogs\charts\images\charts1.png" />
+    <Content Include="content\utf8-net\dialogs\charts\images\charts2.png" />
+    <Content Include="content\utf8-net\dialogs\charts\images\charts3.png" />
+    <Content Include="content\utf8-net\dialogs\charts\images\charts4.png" />
+    <Content Include="content\utf8-net\dialogs\charts\images\charts5.png" />
+    <Content Include="content\utf8-net\dialogs\emotion\emotion.css" />
+    <Content Include="content\utf8-net\dialogs\emotion\emotion.html" />
+    <Content Include="content\utf8-net\dialogs\emotion\emotion.js" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\0.gif" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\bface.gif" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\cface.gif" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\fface.gif" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\tface.gif" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\wface.gif" />
+    <Content Include="content\utf8-net\dialogs\emotion\images\yface.gif" />
+    <Content Include="content\utf8-net\dialogs\gmap\gmap.html" />
+    <Content Include="content\utf8-net\dialogs\help\help.css" />
+    <Content Include="content\utf8-net\dialogs\help\help.html" />
+    <Content Include="content\utf8-net\dialogs\help\help.js" />
+    <Content Include="content\utf8-net\dialogs\image\image.css" />
+    <Content Include="content\utf8-net\dialogs\image\image.html" />
+    <Content Include="content\utf8-net\dialogs\image\image.js" />
+    <Content Include="content\utf8-net\dialogs\image\images\alignicon.jpg" />
+    <Content Include="content\utf8-net\dialogs\image\images\bg.png" />
+    <Content Include="content\utf8-net\dialogs\image\images\icons.gif" />
+    <Content Include="content\utf8-net\dialogs\image\images\icons.png" />
+    <Content Include="content\utf8-net\dialogs\image\images\image.png" />
+    <Content Include="content\utf8-net\dialogs\image\images\progress.png" />
+    <Content Include="content\utf8-net\dialogs\image\images\success.gif" />
+    <Content Include="content\utf8-net\dialogs\image\images\success.png" />
+    <Content Include="content\utf8-net\dialogs\insertframe\insertframe.html" />
+    <Content Include="content\utf8-net\dialogs\internal.js" />
+    <Content Include="content\utf8-net\dialogs\link\link.html" />
+    <Content Include="content\utf8-net\dialogs\map\map.html" />
+    <Content Include="content\utf8-net\dialogs\map\show.html" />
+    <Content Include="content\utf8-net\dialogs\music\music.css" />
+    <Content Include="content\utf8-net\dialogs\music\music.html" />
+    <Content Include="content\utf8-net\dialogs\music\music.js" />
+    <Content Include="content\utf8-net\dialogs\preview\preview.html" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\addimg.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\brush.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\delimg.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\empty.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\eraser.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\redo.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\redoH.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\scale.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\size.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\undo.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\images\undoH.png" />
+    <Content Include="content\utf8-net\dialogs\scrawl\scrawl.css" />
+    <Content Include="content\utf8-net\dialogs\scrawl\scrawl.html" />
+    <Content Include="content\utf8-net\dialogs\scrawl\scrawl.js" />
+    <Content Include="content\utf8-net\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="content\utf8-net\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="content\utf8-net\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="content\utf8-net\dialogs\spechars\spechars.html" />
+    <Content Include="content\utf8-net\dialogs\spechars\spechars.js" />
+    <Content Include="content\utf8-net\dialogs\table\dragicon.png" />
+    <Content Include="content\utf8-net\dialogs\table\edittable.css" />
+    <Content Include="content\utf8-net\dialogs\table\edittable.html" />
+    <Content Include="content\utf8-net\dialogs\table\edittable.js" />
+    <Content Include="content\utf8-net\dialogs\table\edittd.html" />
+    <Content Include="content\utf8-net\dialogs\table\edittip.html" />
+    <Content Include="content\utf8-net\dialogs\template\config.js" />
+    <Content Include="content\utf8-net\dialogs\template\images\bg.gif" />
+    <Content Include="content\utf8-net\dialogs\template\images\pre0.png" />
+    <Content Include="content\utf8-net\dialogs\template\images\pre1.png" />
+    <Content Include="content\utf8-net\dialogs\template\images\pre2.png" />
+    <Content Include="content\utf8-net\dialogs\template\images\pre3.png" />
+    <Content Include="content\utf8-net\dialogs\template\images\pre4.png" />
+    <Content Include="content\utf8-net\dialogs\template\template.css" />
+    <Content Include="content\utf8-net\dialogs\template\template.html" />
+    <Content Include="content\utf8-net\dialogs\template\template.js" />
+    <Content Include="content\utf8-net\dialogs\video\images\bg.png" />
+    <Content Include="content\utf8-net\dialogs\video\images\center_focus.jpg" />
+    <Content Include="content\utf8-net\dialogs\video\images\file-icons.gif" />
+    <Content Include="content\utf8-net\dialogs\video\images\file-icons.png" />
+    <Content Include="content\utf8-net\dialogs\video\images\icons.gif" />
+    <Content Include="content\utf8-net\dialogs\video\images\icons.png" />
+    <Content Include="content\utf8-net\dialogs\video\images\image.png" />
+    <Content Include="content\utf8-net\dialogs\video\images\left_focus.jpg" />
+    <Content Include="content\utf8-net\dialogs\video\images\none_focus.jpg" />
+    <Content Include="content\utf8-net\dialogs\video\images\progress.png" />
+    <Content Include="content\utf8-net\dialogs\video\images\right_focus.jpg" />
+    <Content Include="content\utf8-net\dialogs\video\images\success.gif" />
+    <Content Include="content\utf8-net\dialogs\video\images\success.png" />
+    <Content Include="content\utf8-net\dialogs\video\video.css" />
+    <Content Include="content\utf8-net\dialogs\video\video.html" />
+    <Content Include="content\utf8-net\dialogs\video\video.js" />
+    <Content Include="content\utf8-net\dialogs\webapp\webapp.html" />
+    <Content Include="content\utf8-net\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="content\utf8-net\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="content\utf8-net\dialogs\wordimage\tangram.js" />
+    <Content Include="content\utf8-net\dialogs\wordimage\wordimage.html" />
+    <Content Include="content\utf8-net\dialogs\wordimage\wordimage.js" />
+    <Content Include="content\utf8-net\index.html" />
+    <Content Include="content\utf8-net\lang\en\en.js" />
+    <Content Include="content\utf8-net\lang\en\images\addimage.png" />
+    <Content Include="content\utf8-net\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="content\utf8-net\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="content\utf8-net\lang\en\images\background.png" />
+    <Content Include="content\utf8-net\lang\en\images\button.png" />
+    <Content Include="content\utf8-net\lang\en\images\copy.png" />
+    <Content Include="content\utf8-net\lang\en\images\deletedisable.png" />
+    <Content Include="content\utf8-net\lang\en\images\deleteenable.png" />
+    <Content Include="content\utf8-net\lang\en\images\listbackground.png" />
+    <Content Include="content\utf8-net\lang\en\images\localimage.png" />
+    <Content Include="content\utf8-net\lang\en\images\music.png" />
+    <Content Include="content\utf8-net\lang\en\images\rotateleftdisable.png" />
+    <Content Include="content\utf8-net\lang\en\images\rotateleftenable.png" />
+    <Content Include="content\utf8-net\lang\en\images\rotaterightdisable.png" />
+    <Content Include="content\utf8-net\lang\en\images\rotaterightenable.png" />
+    <Content Include="content\utf8-net\lang\en\images\upload.png" />
+    <Content Include="content\utf8-net\lang\zh-cn\images\copy.png" />
+    <Content Include="content\utf8-net\lang\zh-cn\images\localimage.png" />
+    <Content Include="content\utf8-net\lang\zh-cn\images\music.png" />
+    <Content Include="content\utf8-net\lang\zh-cn\images\upload.png" />
+    <Content Include="content\utf8-net\lang\zh-cn\zh-cn.js" />
+    <Content Include="content\utf8-net\net\Bin\Newtonsoft.Json.dll" />
+    <Content Include="content\utf8-net\net\Bin\Newtonsoft.Json.pdb" />
+    <Content Include="content\utf8-net\net\Bin\Newtonsoft.Json.xml" />
+    <Content Include="content\utf8-net\net\net.sln" />
+    <Content Include="content\utf8-net\net\upload\image\20180112\6365134611003392634502186.png" />
+    <Content Include="content\utf8-net\themes\default\css\ueditor.css" />
+    <Content Include="content\utf8-net\themes\default\css\ueditor.min.css" />
+    <Content Include="content\utf8-net\themes\default\dialogbase.css" />
+    <Content Include="content\utf8-net\themes\default\images\anchor.gif" />
+    <Content Include="content\utf8-net\themes\default\images\arrow.png" />
+    <Content Include="content\utf8-net\themes\default\images\arrow_down.png" />
+    <Content Include="content\utf8-net\themes\default\images\arrow_up.png" />
+    <Content Include="content\utf8-net\themes\default\images\button-bg.gif" />
+    <Content Include="content\utf8-net\themes\default\images\cancelbutton.gif" />
+    <Content Include="content\utf8-net\themes\default\images\charts.png" />
+    <Content Include="content\utf8-net\themes\default\images\cursor_h.gif" />
+    <Content Include="content\utf8-net\themes\default\images\cursor_h.png" />
+    <Content Include="content\utf8-net\themes\default\images\cursor_v.gif" />
+    <Content Include="content\utf8-net\themes\default\images\cursor_v.png" />
+    <Content Include="content\utf8-net\themes\default\images\dialog-title-bg.png" />
+    <Content Include="content\utf8-net\themes\default\images\filescan.png" />
+    <Content Include="content\utf8-net\themes\default\images\highlighted.gif" />
+    <Content Include="content\utf8-net\themes\default\images\icons-all.gif" />
+    <Content Include="content\utf8-net\themes\default\images\icons.gif" />
+    <Content Include="content\utf8-net\themes\default\images\icons.png" />
+    <Content Include="content\utf8-net\themes\default\images\loaderror.png" />
+    <Content Include="content\utf8-net\themes\default\images\loading.gif" />
+    <Content Include="content\utf8-net\themes\default\images\lock.gif" />
+    <Content Include="content\utf8-net\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="content\utf8-net\themes\default\images\pagebreak.gif" />
+    <Content Include="content\utf8-net\themes\default\images\scale.png" />
+    <Content Include="content\utf8-net\themes\default\images\sortable.png" />
+    <Content Include="content\utf8-net\themes\default\images\spacer.gif" />
+    <Content Include="content\utf8-net\themes\default\images\sparator_v.png" />
+    <Content Include="content\utf8-net\themes\default\images\table-cell-align.png" />
+    <Content Include="content\utf8-net\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="content\utf8-net\themes\default\images\toolbar_bg.png" />
+    <Content Include="content\utf8-net\themes\default\images\unhighlighted.gif" />
+    <Content Include="content\utf8-net\themes\default\images\upload.png" />
+    <Content Include="content\utf8-net\themes\default\images\videologo.gif" />
+    <Content Include="content\utf8-net\themes\default\images\word.gif" />
+    <Content Include="content\utf8-net\themes\default\images\wordpaste.png" />
+    <Content Include="content\utf8-net\themes\iframe.css" />
+    <Content Include="content\utf8-net\third-party\codemirror\codemirror.css" />
+    <Content Include="content\utf8-net\third-party\codemirror\codemirror.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\adapters\standalone-framework.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\highcharts-more.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\highcharts-more.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\highcharts.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\highcharts.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\annotations.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\annotations.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\canvas-tools.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\data.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\data.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\drilldown.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\drilldown.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\exporting.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\exporting.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\funnel.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\funnel.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\heatmap.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\heatmap.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\map.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\map.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\no-data-to-display.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\themes\dark-blue.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\themes\dark-green.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\themes\gray.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\themes\grid.js" />
+    <Content Include="content\utf8-net\third-party\highcharts\themes\skies.js" />
+    <Content Include="content\utf8-net\third-party\jquery-1.10.2.js" />
+    <Content Include="content\utf8-net\third-party\jquery-1.10.2.min.js" />
+    <Content Include="content\utf8-net\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="content\utf8-net\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="content\utf8-net\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="content\utf8-net\third-party\video-js\font\vjs.svg" />
+    <Content Include="content\utf8-net\third-party\video-js\video-js.css" />
+    <Content Include="content\utf8-net\third-party\video-js\video-js.min.css" />
+    <Content Include="content\utf8-net\third-party\video-js\video-js.swf" />
+    <Content Include="content\utf8-net\third-party\video-js\video.dev.js" />
+    <Content Include="content\utf8-net\third-party\video-js\video.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\Uploader.swf" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.css" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.custom.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.flashonly.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.flashonly.min.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.html5only.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.html5only.min.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.min.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.withoutimage.js" />
+    <Content Include="content\utf8-net\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <Content Include="content\utf8-net\third-party\xss.min.js" />
+    <Content Include="content\utf8-net\third-party\zeroclipboard\ZeroClipboard.js" />
+    <Content Include="content\utf8-net\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <Content Include="content\utf8-net\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <Content Include="content\utf8-net\ueditor.all.js" />
+    <Content Include="content\utf8-net\ueditor.all.min.js" />
+    <Content Include="content\utf8-net\ueditor.config.js" />
+    <Content Include="content\utf8-net\ueditor.parse.js" />
+    <Content Include="content\utf8-net\ueditor.parse.min.js" />
+    <Content Include="Css\Answer\ask_float_block-505f0ef9e74e8998a10227960fc7e1cc.css" />
+    <Content Include="Css\Answer\ask_index_A-d4a5814df2157675455162a49e96a0a0.css" />
+    <Content Include="Css\Answer\ask_question_detail-64054bf684bcef8c63c5528a3814343b.css" />
+    <Content Include="Css\Answer\avatar.css" />
+    <Content Include="Css\Answer\bootstrap.css" />
+    <Content Include="Css\Answer\btn.css" />
+    <Content Include="Css\Answer\common-ba6cbbcf1e167f79239fa214cbb7f63d.css" />
+    <Content Include="Css\Answer\content_toolbar.css" />
+    <Content Include="Css\Answer\editor-1f4b5f7eb599b4f68f6787c0cce7b807.css" />
+    <Content Include="Css\Answer\font-awesome-ie7.min-1e0b217d7be56bd5d291e36d59e3f90f.css" />
+    <Content Include="Css\Answer\font-awesome.min-c873246088eb5658d2a1379d3c334280.css" />
+    <Content Include="Css\Answer\icon.css" />
+    <Content Include="Css\Answer\mini.css" />
+    <Content Include="Css\Answer\pagination.css" />
+    <Content Include="Css\Answer\pub_footer_2014.css" />
+    <Content Include="Css\Answer\share_style0_16.css" />
     <Content Include="Global.asax" />
-    <Content Include="Img\Problems\2_a15227176797.jpg" />
-    <Content Include="Img\Problems\2_bdmh.jpg" />
-    <Content Include="Img\Problems\2_caozhy.jpg" />
-    <Content Include="Img\Problems\2_chenbaige.jpg" />
-    <Content Include="Img\Problems\2_dcxy0.jpg" />
-    <Content Include="Img\Problems\2_dengjianlong123.jpg" />
-    <Content Include="Img\Problems\2_devmiao.jpg" />
-    <Content Include="Img\Problems\2_en_joker.jpg" />
-    <Content Include="Img\Problems\2_fecker.jpg" />
-    <Content Include="Img\Problems\2_gezhao163.jpg" />
-    <Content Include="Img\Problems\2_liulangdada.jpg" />
-    <Content Include="Img\Problems\2_ltx2046.jpg" />
-    <Content Include="Img\Problems\2_morgerton.jpg" />
-    <Content Include="Img\Problems\2_oyljerry.jpg" />
-    <Content Include="Img\Problems\2_qq_20766085.jpg" />
-    <Content Include="Img\Problems\2_qq_23126581.jpg" />
-    <Content Include="Img\Problems\2_qq_34701469.jpg" />
-    <Content Include="Img\Problems\2_small_mouse0.jpg" />
-    <Content Include="Img\Problems\2_weixin_37219633.jpg" />
-    <Content Include="Img\Problems\2_zgy621101.jpg" />
-    <Content Include="Img\Problems\3_liulangdada.jpg" />
-    <Content Include="Js\Problems\application-5a64f9f68243804209e4c74dc29d04e1.js" />
-    <Content Include="Css\Problems\ask_float_block-505f0ef9e74e8998a10227960fc7e1cc.css" />
-    <Content Include="Js\Problems\ask_float_block-a8cccd57e4e8fd8fca5dccc538ee88eb.js" />
-    <Content Include="Css\Problems\ask_index_A-d4a5814df2157675455162a49e96a0a0.css" />
-    <Content Include="Js\Problems\async-1.0.0.js" />
-    <Content Include="Css\Problems\avatar.css" />
-    <Content Include="Js\Problems\block.js" />
-    <Content Include="Css\Problems\bootstrap.css" />
-    <Content Include="Js\Problems\bootstrap.min-161e87582a690d911b28d3fc784f0c3b.js" />
-    <Content Include="Css\Problems\btn.css" />
-    <Content Include="Js\Problems\character-4e1934aa075d673a1e17cca2147a6c61.js" />
-    <Content Include="Js\Problems\cnick.js" />
-    <Content Include="Css\Problems\common-ba6cbbcf1e167f79239fa214cbb7f63d.css" />
-    <Content Include="Css\Problems\content_toolbar.css" />
-    <Content Include="Js\Problems\content_toolbar.js" />
-    <Content Include="Js\Problems\dscroll-359a02d82eefd771a0ccbf5a863e7675.js" />
-    <Content Include="Css\Problems\editor-1f4b5f7eb599b4f68f6787c0cce7b807.css" />
-    <Content Include="Js\Problems\editor-5ba0f2dea7f1c20df0ca9b0877b4f54f.js" />
-    <Content Include="Css\Problems\font-awesome-ie7.min-1e0b217d7be56bd5d291e36d59e3f90f.css" />
-    <Content Include="Css\Problems\font-awesome.min-c873246088eb5658d2a1379d3c334280.css" />
-    <Content Include="Js\Problems\fuckadblock.js" />
-    <Content Include="Css\Problems\gongshang_logos.gif" />
-    <Content Include="Js\Problems\hm.js" />
-    <Content Include="Css\Problems\hot_tag-2c56d102ecacf0ff53ddbb869aa0d71d.css" />
-    <Content Include="Js\Problems\html5shiv.min-eb0385a8a3205e157d275304e2e971bb.js" />
-    <Content Include="Css\Problems\icon.css" />
-    <Content Include="Js\Problems\iconfont.js" />
-    <Content Include="Js\Problems\jquery-1.11.1.min-941027de4d6e4d3fb368648dcb350631.js" />
-    <Content Include="Js\Problems\jquery-1.8.3.min.js" />
-    <Content Include="Js\Problems\jquery.form-970fa25a8fc7698f768416b39f738706.js" />
-    <Content Include="Js\Problems\main-1.0.2%281%29.js" />
-    <Content Include="Js\Problems\main-1.0.2.js" />
-    <Content Include="Js\Problems\marked-6eb29a3195faf2eaa4bde60df81d9233.js" />
-    <Content Include="Css\Problems\mini.css" />
-    <Content Include="Js\Problems\mini.js" />
-    <Content Include="Js\Problems\notify.js" />
-    <Content Include="Css\Problems\pagination.css" />
-    <Content Include="Js\Problems\prettify.js" />
-    <Content Include="Css\Problems\proxy.html" />
-    <Content Include="Js\Problems\publib_footer-1.0.2.js" />
-    <Content Include="Css\Problems\pub_footer_2014.css" />
-    <Content Include="Js\Problems\push.js" />
-    <Content Include="Js\Problems\repoAddr2.js" />
-    <Content Include="Js\Problems\showdown.js" />
-    <Content Include="Js\Problems\text-stretch2-451c170138682b5379f89380b33504ca.js" />
-    <Content Include="Js\Problems\tracking-1.0.0.js" />
-    <Content Include="Js\Problems\tracking-1.0.2.js" />
-    <Content Include="Js\Problems\wmd.js" />
+    <Content Include="Img\Answer\100x100.jpg" />
+    <Content Include="Img\Answer\1515640882_421549.png" />
+    <Content Include="Img\Answer\1515640920_126022.png" />
+    <Content Include="Img\Answer\1515641198_38201.png" />
+    <Content Include="Img\Answer\1515641255_924444.png" />
+    <Content Include="Img\Answer\20300542501252139731098214654.jpg" />
+    <Content Include="Img\Answer\2_suchunyu1999.jpg" />
+    <Content Include="Img\Answer\3_caozhy.jpg" />
+    <Content Include="Img\Answer\3_hduwuenhui.jpg" />
+    <Content Include="Img\Answer\3_qq_29195041.jpg" />
+    <Content Include="Img\Answer\3_qq_41032790.jpg" />
+    <Content Include="Img\Answer\csdn_user_default_icon.png" />
+    <Content Include="Img\Answer\ds-adfe3012734c7ddc09af05d968a8fb7d.png" />
+    <Content Include="Img\Answer\f99515fea62a6e21c8100e876b2451e1.png" />
+    <Content Include="Img\Answer\gongshang_logos.gif" />
+    <Content Include="Img\Answer\rxr-6457ceff40c2a69be66e3a4d6fc83462.png" />
+    <Content Include="Js\Answer\application-5a64f9f68243804209e4c74dc29d04e1.js" />
+    <Content Include="Js\Answer\ask_float_block-a8cccd57e4e8fd8fca5dccc538ee88eb.js" />
+    <Content Include="Js\Answer\async-1.0.0.js" />
+    <Content Include="Js\Answer\block.js" />
+    <Content Include="Js\Answer\bootstrap.min-161e87582a690d911b28d3fc784f0c3b.js" />
+    <Content Include="Js\Answer\cnick.js" />
+    <Content Include="Js\Answer\content_toolbar.js" />
+    <Content Include="Js\Answer\dscroll-359a02d82eefd771a0ccbf5a863e7675.js" />
+    <Content Include="Js\Answer\editor-5ba0f2dea7f1c20df0ca9b0877b4f54f.js" />
+    <Content Include="Js\Answer\fuckadblock.js" />
+    <Content Include="Js\Answer\hm.js" />
+    <Content Include="Js\Answer\html5shiv.min-eb0385a8a3205e157d275304e2e971bb.js" />
+    <Content Include="Js\Answer\iconfont.js" />
+    <Content Include="Js\Answer\jquery-1.11.1.min-941027de4d6e4d3fb368648dcb350631.js" />
+    <Content Include="Js\Answer\jquery-1.8.3.min.js" />
+    <Content Include="Js\Answer\jquery.form-970fa25a8fc7698f768416b39f738706.js" />
+    <Content Include="Js\Answer\main-1.0.2%281%29.js" />
+    <Content Include="Js\Answer\main-1.0.2.js" />
+    <Content Include="Js\Answer\marked-6eb29a3195faf2eaa4bde60df81d9233.js" />
+    <Content Include="Js\Answer\mini.js" />
+    <Content Include="Js\Answer\notify.js" />
+    <Content Include="Js\Answer\prettify.js" />
+    <Content Include="Js\Answer\publib_footer-1.0.2.js" />
+    <Content Include="Js\Answer\push.js" />
+    <Content Include="Js\Answer\repoAddr2.js" />
+    <Content Include="Js\Answer\share.js" />
+    <Content Include="Js\Answer\showdown.js" />
+    <Content Include="Js\Answer\tracking-1.0.0.js" />
+    <Content Include="Js\Answer\tracking-1.0.2.js" />
+    <Content Include="Js\Answer\wmd.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -195,16 +537,46 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Problems\Index.cshtml" />
+    <Content Include="Views\Answer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Css\Problems\get_ads.php" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\BlogsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BlogsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\BlogsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlogsModel.edmx</DependentUpon>
+      <LastGenOutput>BlogsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BlogsModel.edmx.diagram">
+      <DependentUpon>BlogsModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BlogsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlogsModel.edmx</DependentUpon>
+      <LastGenOutput>BlogsModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\utf8-net\net\config.json" />
+    <Content Include="content\utf8-net\net\controller.ashx" />
+    <Content Include="content\utf8-net\net\README.md" />
+    <Content Include="content\utf8-net\net\Web.config" />
+    <Content Include="content\utf8-net\third-party\jquery-1.10.2.min.map" />
+    <Content Include="content\utf8-net\third-party\video-js\font\vjs.eot" />
+    <Content Include="content\utf8-net\third-party\video-js\font\vjs.ttf" />
+    <Content Include="content\utf8-net\third-party\video-js\font\vjs.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

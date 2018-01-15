@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BKModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BKModelStoreContainer">
+          <EntitySet Name="Album" EntityType="BKModel.Store.Album" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Answer" EntityType="BKModel.Store.Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Articles" EntityType="BKModel.Store.Articles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPaperComments" EntityType="BKModel.Store.BlogPaperComments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPaperReply" EntityType="BKModel.Store.BlogPaperReply" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPaperType" EntityType="BKModel.Store.BlogPaperType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ConsumptionType" EntityType="BKModel.Store.ConsumptionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Head" EntityType="BKModel.Store.Head" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ImageIndex" EntityType="BKModel.Store.ImageIndex" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Integral" EntityType="BKModel.Store.Integral" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IntegralRecord" EntityType="BKModel.Store.IntegralRecord" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Problems" EntityType="BKModel.Store.Problems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Problems_Type" EntityType="BKModel.Store.Problems_Type" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PublishBlogPaper" EntityType="BKModel.Store.PublishBlogPaper" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserDetail" EntityType="BKModel.Store.UserDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserInfo" EntityType="BKModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="alId" />
+          </Key>
+          <Property Name="alId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="alName" Type="varchar" MaxLength="200" />
+          <Property Name="alUrl" Type="varchar" MaxLength="100" />
+          <Property Name="alDetailId" Type="int" />
+        </EntityType>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="Answer_Id" />
+          </Key>
+          <Property Name="Answer_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Problems_Id" Type="int" />
+          <Property Name="Answer_UserId" Type="int" />
+          <Property Name="Answer_time" Type="datetime" />
+          <Property Name="Answer_Content" Type="text" />
+          <Property Name="Answer_agreeCount" Type="int" />
+          <Property Name="Answer_disagreeCount" Type="int" />
+        </EntityType>
+        <EntityType Name="Articles">
+          <Key>
+            <PropertyRef Name="aId" />
+          </Key>
+          <Property Name="aId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="aName" Type="varchar" MaxLength="200" />
+          <Property Name="aType" Type="varchar" MaxLength="64" />
+          <Property Name="aAuthor" Type="varchar" MaxLength="32" />
+          <Property Name="aReleaseTime" Type="datetime" />
+          <Property Name="aRemark" Type="text" />
+          <Property Name="aAmountOfAccess" Type="int" />
+          <Property Name="aCommentNum" Type="int" />
+          <Property Name="adId" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogPaperComments">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Name="Comment_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="BlogPaper_Id" Type="int" />
+          <Property Name="Comments_Url" Type="nvarchar" MaxLength="64" />
+          <Property Name="Comments_Time" Type="datetime" />
+          <Property Name="Comments_Agreements" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogPaperReply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Comment_Id" Type="int" />
+          <Property Name="Reply_Id" Type="int" />
+          <Property Name="Reply_type" Type="int" />
+          <Property Name="Reply_Content" Type="nvarchar" MaxLength="512" />
+          <Property Name="From_Id" Type="int" />
+          <Property Name="To_Uid" Type="int" />
+          <Property Name="Reply_Time" Type="datetime" />
+          <Property Name="Reply_Agreements" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogPaperType">
+          <Key>
+            <PropertyRef Name="PaperType_Id" />
+          </Key>
+          <Property Name="PaperType_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PaperType_TitleName" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="ConsumptionType">
+          <Key>
+            <PropertyRef Name="CTid" />
+          </Key>
+          <Property Name="CTid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CTnamr" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Head">
+          <Key>
+            <PropertyRef Name="Head_Id" />
+          </Key>
+          <Property Name="Head_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Head_Title" Type="nvarchar" MaxLength="64" />
+          <Property Name="Head_Url" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="ImageIndex">
+          <Key>
+            <PropertyRef Name="imgId" />
+          </Key>
+          <Property Name="imgId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="imgName" Type="varchar" MaxLength="64" />
+          <Property Name="imgUrl" Type="varchar" MaxLength="100" />
+          <Property Name="imgRemark" Type="text" />
+        </EntityType>
+        <EntityType Name="Integral">
+          <Key>
+            <PropertyRef Name="Iid" />
+          </Key>
+          <Property Name="Iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="int" />
+          <Property Name="oldTotal" Type="int" />
+          <Property Name="newTotal" Type="int" />
+          <Property Name="Consumption" Type="int" />
+        </EntityType>
+        <EntityType Name="IntegralRecord">
+          <Key>
+            <PropertyRef Name="IRid" />
+          </Key>
+          <Property Name="IRid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CTid" Type="int" />
+          <Property Name="Expenditure_id" Type="int" />
+          <Property Name="Income_id" Type="int" />
+          <Property Name="Transac" Type="int" />
+          <Property Name="IRtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Problems">
+          <Key>
+            <PropertyRef Name="Problems_Id" />
+          </Key>
+          <Property Name="Problems_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Problems_Type_Id" Type="int" />
+          <Property Name="Problems_UserId" Type="int" />
+          <Property Name="Problems_Time" Type="datetime" />
+          <Property Name="Problems_Title" Type="text" />
+          <Property Name="Problems_Content" Type="text" />
+          <Property Name="Problems_SeeCount" Type="int" />
+          <Property Name="Problems_CollectCount" Type="int" />
+          <Property Name="Problems_IsSolve" Type="int" />
+          <Property Name="Problems_Money" Type="int" />
+          <Property Name="Problems_BestAnswerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Problems_Type">
+          <Key>
+            <PropertyRef Name="Problems_Type_Id" />
+          </Key>
+          <Property Name="Problems_Type_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Problems_Type_Name" Type="varchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="PublishBlogPaper">
+          <Key>
+            <PropertyRef Name="BlogPaper_Id" />
+          </Key>
+          <Property Name="BlogPaper_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="PaperType_Id" Type="int" />
+          <Property Name="BlogPaper_TitleName" Type="nvarchar" MaxLength="128" />
+          <Property Name="BlogPaper_PublishTime" Type="datetime" />
+          <Property Name="BlogPaper_Contents" Type="text" />
+          <Property Name="BlogPaper_Readings" Type="int" />
+          <Property Name="BlogPaper_Comments" Type="int" />
+          <Property Name="BlogPaper_Agreements" Type="int" />
+          <Property Name="BlogPaper_Opyright" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="Detail_Id" />
+          </Key>
+          <Property Name="Detail_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Detail_Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="Detail_Sex" Type="int" />
+          <Property Name="Detail_Birthday" Type="datetime" />
+          <Property Name="Detail_UserImg" Type="varchar" MaxLength="64" />
+          <Property Name="Detail_Position" Type="nvarchar" MaxLength="64" />
+          <Property Name="Detail_Region" Type="nvarchar" MaxLength="64" />
+          <Property Name="Detail_Region2" Type="nvarchar" MaxLength="64" />
+          <Property Name="Detail_Region3" Type="nvarchar" MaxLength="64" />
+          <Property Name="Detail_Industry" Type="nvarchar" MaxLength="128" />
+          <Property Name="Detail_SelfIntro" Type="nvarchar" MaxLength="300" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserPhone" Type="varchar" MaxLength="11" />
+          <Property Name="UserName" Type="varchar" MaxLength="64" />
+          <Property Name="UserPwd" Type="varchar" MaxLength="64" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BKModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BKEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Album" EntityType="BKModel.Album" />
+          <EntitySet Name="Answer" EntityType="BKModel.Answer" />
+          <EntitySet Name="Articles" EntityType="BKModel.Articles" />
+          <EntitySet Name="BlogPaperComments" EntityType="BKModel.BlogPaperComments" />
+          <EntitySet Name="BlogPaperReply" EntityType="BKModel.BlogPaperReply" />
+          <EntitySet Name="BlogPaperType" EntityType="BKModel.BlogPaperType" />
+          <EntitySet Name="ConsumptionType" EntityType="BKModel.ConsumptionType" />
+          <EntitySet Name="Head" EntityType="BKModel.Head" />
+          <EntitySet Name="ImageIndex" EntityType="BKModel.ImageIndex" />
+          <EntitySet Name="Integral" EntityType="BKModel.Integral" />
+          <EntitySet Name="IntegralRecord" EntityType="BKModel.IntegralRecord" />
+          <EntitySet Name="Problems" EntityType="BKModel.Problems" />
+          <EntitySet Name="Problems_Type" EntityType="BKModel.Problems_Type" />
+          <EntitySet Name="PublishBlogPaper" EntityType="BKModel.PublishBlogPaper" />
+          <EntitySet Name="UserDetail" EntityType="BKModel.UserDetail" />
+          <EntitySet Name="UserInfo" EntityType="BKModel.UserInfo" />
+        </EntityContainer>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="alId" />
+          </Key>
+          <Property Name="alId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="alName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="alUrl" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="alDetailId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="Answer_Id" />
+          </Key>
+          <Property Name="Answer_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Problems_Id" Type="Int32" />
+          <Property Name="Answer_UserId" Type="Int32" />
+          <Property Name="Answer_time" Type="DateTime" Precision="3" />
+          <Property Name="Answer_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Answer_agreeCount" Type="Int32" />
+          <Property Name="Answer_disagreeCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Articles">
+          <Key>
+            <PropertyRef Name="aId" />
+          </Key>
+          <Property Name="aId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="aName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="aType" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="aAuthor" Type="String" MaxLength="32" Unicode="false" FixedLength="false" />
+          <Property Name="aReleaseTime" Type="DateTime" Precision="3" />
+          <Property Name="aRemark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="aAmountOfAccess" Type="Int32" />
+          <Property Name="aCommentNum" Type="Int32" />
+          <Property Name="adId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BlogPaperComments">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Name="Comment_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="BlogPaper_Id" Type="Int32" />
+          <Property Name="Comments_Url" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Comments_Time" Type="DateTime" Precision="3" />
+          <Property Name="Comments_Agreements" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BlogPaperReply">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment_Id" Type="Int32" />
+          <Property Name="Reply_Id" Type="Int32" />
+          <Property Name="Reply_type" Type="Int32" />
+          <Property Name="Reply_Content" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="From_Id" Type="Int32" />
+          <Property Name="To_Uid" Type="Int32" />
+          <Property Name="Reply_Time" Type="DateTime" Precision="3" />
+          <Property Name="Reply_Agreements" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BlogPaperType">
+          <Key>
+            <PropertyRef Name="PaperType_Id" />
+          </Key>
+          <Property Name="PaperType_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PaperType_TitleName" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ConsumptionType">
+          <Key>
+            <PropertyRef Name="CTid" />
+          </Key>
+          <Property Name="CTid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CTnamr" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Head">
+          <Key>
+            <PropertyRef Name="Head_Id" />
+          </Key>
+          <Property Name="Head_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Head_Title" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Head_Url" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImageIndex">
+          <Key>
+            <PropertyRef Name="imgId" />
+          </Key>
+          <Property Name="imgId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="imgName" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="imgUrl" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="imgRemark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Integral">
+          <Key>
+            <PropertyRef Name="Iid" />
+          </Key>
+          <Property Name="Iid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="oldTotal" Type="Int32" />
+          <Property Name="newTotal" Type="Int32" />
+          <Property Name="Consumption" Type="Int32" />
+        </EntityType>
+        <EntityType Name="IntegralRecord">
+          <Key>
+            <PropertyRef Name="IRid" />
+          </Key>
+          <Property Name="IRid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CTid" Type="Int32" />
+          <Property Name="Expenditure_id" Type="Int32" />
+          <Property Name="Income_id" Type="Int32" />
+          <Property Name="Transac" Type="Int32" />
+          <Property Name="IRtime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Problems">
+          <Key>
+            <PropertyRef Name="Problems_Id" />
+          </Key>
+          <Property Name="Problems_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Problems_Type_Id" Type="Int32" />
+          <Property Name="Problems_UserId" Type="Int32" />
+          <Property Name="Problems_Time" Type="DateTime" Precision="3" />
+          <Property Name="Problems_Title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Problems_Content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Problems_SeeCount" Type="Int32" />
+          <Property Name="Problems_CollectCount" Type="Int32" />
+          <Property Name="Problems_IsSolve" Type="Int32" />
+          <Property Name="Problems_Money" Type="Int32" />
+          <Property Name="Problems_BestAnswerId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Problems_Type">
+          <Key>
+            <PropertyRef Name="Problems_Type_Id" />
+          </Key>
+          <Property Name="Problems_Type_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Problems_Type_Name" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PublishBlogPaper">
+          <Key>
+            <PropertyRef Name="BlogPaper_Id" />
+          </Key>
+          <Property Name="BlogPaper_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="PaperType_Id" Type="Int32" />
+          <Property Name="BlogPaper_TitleName" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="BlogPaper_PublishTime" Type="DateTime" Precision="3" />
+          <Property Name="BlogPaper_Contents" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="BlogPaper_Readings" Type="Int32" />
+          <Property Name="BlogPaper_Comments" Type="Int32" />
+          <Property Name="BlogPaper_Agreements" Type="Int32" />
+          <Property Name="BlogPaper_Opyright" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="Detail_Id" />
+          </Key>
+          <Property Name="Detail_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Detail_Name" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Detail_Sex" Type="Int32" />
+          <Property Name="Detail_Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Detail_UserImg" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Detail_Position" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Detail_Region" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Detail_Region2" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Detail_Region3" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+          <Property Name="Detail_Industry" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="Detail_SelfIntro" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserPhone" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="UserPwd" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BKModelStoreContainer" CdmEntityContainer="BKEntities">
+          <EntitySetMapping Name="Album">
+            <EntityTypeMapping TypeName="BKModel.Album">
+              <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="alId" ColumnName="alId" />
+                <ScalarProperty Name="alName" ColumnName="alName" />
+                <ScalarProperty Name="alUrl" ColumnName="alUrl" />
+                <ScalarProperty Name="alDetailId" ColumnName="alDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Answer">
+            <EntityTypeMapping TypeName="BKModel.Answer">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="Answer_Id" ColumnName="Answer_Id" />
+                <ScalarProperty Name="Problems_Id" ColumnName="Problems_Id" />
+                <ScalarProperty Name="Answer_UserId" ColumnName="Answer_UserId" />
+                <ScalarProperty Name="Answer_time" ColumnName="Answer_time" />
+                <ScalarProperty Name="Answer_Content" ColumnName="Answer_Content" />
+                <ScalarProperty Name="Answer_agreeCount" ColumnName="Answer_agreeCount" />
+                <ScalarProperty Name="Answer_disagreeCount" ColumnName="Answer_disagreeCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="BKModel.Articles">
+              <MappingFragment StoreEntitySet="Articles">
+                <ScalarProperty Name="aId" ColumnName="aId" />
+                <ScalarProperty Name="aName" ColumnName="aName" />
+                <ScalarProperty Name="aType" ColumnName="aType" />
+                <ScalarProperty Name="aAuthor" ColumnName="aAuthor" />
+                <ScalarProperty Name="aReleaseTime" ColumnName="aReleaseTime" />
+                <ScalarProperty Name="aRemark" ColumnName="aRemark" />
+                <ScalarProperty Name="aAmountOfAccess" ColumnName="aAmountOfAccess" />
+                <ScalarProperty Name="aCommentNum" ColumnName="aCommentNum" />
+                <ScalarProperty Name="adId" ColumnName="adId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPaperComments">
+            <EntityTypeMapping TypeName="BKModel.BlogPaperComments">
+              <MappingFragment StoreEntitySet="BlogPaperComments">
+                <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BlogPaper_Id" ColumnName="BlogPaper_Id" />
+                <ScalarProperty Name="Comments_Url" ColumnName="Comments_Url" />
+                <ScalarProperty Name="Comments_Time" ColumnName="Comments_Time" />
+                <ScalarProperty Name="Comments_Agreements" ColumnName="Comments_Agreements" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPaperReply">
+            <EntityTypeMapping TypeName="BKModel.BlogPaperReply">
+              <MappingFragment StoreEntitySet="BlogPaperReply">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+                <ScalarProperty Name="Reply_Id" ColumnName="Reply_Id" />
+                <ScalarProperty Name="Reply_type" ColumnName="Reply_type" />
+                <ScalarProperty Name="Reply_Content" ColumnName="Reply_Content" />
+                <ScalarProperty Name="From_Id" ColumnName="From_Id" />
+                <ScalarProperty Name="To_Uid" ColumnName="To_Uid" />
+                <ScalarProperty Name="Reply_Time" ColumnName="Reply_Time" />
+                <ScalarProperty Name="Reply_Agreements" ColumnName="Reply_Agreements" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPaperType">
+            <EntityTypeMapping TypeName="BKModel.BlogPaperType">
+              <MappingFragment StoreEntitySet="BlogPaperType">
+                <ScalarProperty Name="PaperType_Id" ColumnName="PaperType_Id" />
+                <ScalarProperty Name="PaperType_TitleName" ColumnName="PaperType_TitleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConsumptionType">
+            <EntityTypeMapping TypeName="BKModel.ConsumptionType">
+              <MappingFragment StoreEntitySet="ConsumptionType">
+                <ScalarProperty Name="CTid" ColumnName="CTid" />
+                <ScalarProperty Name="CTnamr" ColumnName="CTnamr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Head">
+            <EntityTypeMapping TypeName="BKModel.Head">
+              <MappingFragment StoreEntitySet="Head">
+                <ScalarProperty Name="Head_Id" ColumnName="Head_Id" />
+                <ScalarProperty Name="Head_Title" ColumnName="Head_Title" />
+                <ScalarProperty Name="Head_Url" ColumnName="Head_Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageIndex">
+            <EntityTypeMapping TypeName="BKModel.ImageIndex">
+              <MappingFragment StoreEntitySet="ImageIndex">
+                <ScalarProperty Name="imgId" ColumnName="imgId" />
+                <ScalarProperty Name="imgName" ColumnName="imgName" />
+                <ScalarProperty Name="imgUrl" ColumnName="imgUrl" />
+                <ScalarProperty Name="imgRemark" ColumnName="imgRemark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Integral">
+            <EntityTypeMapping TypeName="BKModel.Integral">
+              <MappingFragment StoreEntitySet="Integral">
+                <ScalarProperty Name="Iid" ColumnName="Iid" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="oldTotal" ColumnName="oldTotal" />
+                <ScalarProperty Name="newTotal" ColumnName="newTotal" />
+                <ScalarProperty Name="Consumption" ColumnName="Consumption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IntegralRecord">
+            <EntityTypeMapping TypeName="BKModel.IntegralRecord">
+              <MappingFragment StoreEntitySet="IntegralRecord">
+                <ScalarProperty Name="IRid" ColumnName="IRid" />
+                <ScalarProperty Name="CTid" ColumnName="CTid" />
+                <ScalarProperty Name="Expenditure_id" ColumnName="Expenditure_id" />
+                <ScalarProperty Name="Income_id" ColumnName="Income_id" />
+                <ScalarProperty Name="Transac" ColumnName="Transac" />
+                <ScalarProperty Name="IRtime" ColumnName="IRtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Problems">
+            <EntityTypeMapping TypeName="BKModel.Problems">
+              <MappingFragment StoreEntitySet="Problems">
+                <ScalarProperty Name="Problems_Id" ColumnName="Problems_Id" />
+                <ScalarProperty Name="Problems_Type_Id" ColumnName="Problems_Type_Id" />
+                <ScalarProperty Name="Problems_UserId" ColumnName="Problems_UserId" />
+                <ScalarProperty Name="Problems_Time" ColumnName="Problems_Time" />
+                <ScalarProperty Name="Problems_Title" ColumnName="Problems_Title" />
+                <ScalarProperty Name="Problems_Content" ColumnName="Problems_Content" />
+                <ScalarProperty Name="Problems_SeeCount" ColumnName="Problems_SeeCount" />
+                <ScalarProperty Name="Problems_CollectCount" ColumnName="Problems_CollectCount" />
+                <ScalarProperty Name="Problems_IsSolve" ColumnName="Problems_IsSolve" />
+                <ScalarProperty Name="Problems_Money" ColumnName="Problems_Money" />
+                <ScalarProperty Name="Problems_BestAnswerId" ColumnName="Problems_BestAnswerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Problems_Type">
+            <EntityTypeMapping TypeName="BKModel.Problems_Type">
+              <MappingFragment StoreEntitySet="Problems_Type">
+                <ScalarProperty Name="Problems_Type_Id" ColumnName="Problems_Type_Id" />
+                <ScalarProperty Name="Problems_Type_Name" ColumnName="Problems_Type_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublishBlogPaper">
+            <EntityTypeMapping TypeName="BKModel.PublishBlogPaper">
+              <MappingFragment StoreEntitySet="PublishBlogPaper">
+                <ScalarProperty Name="BlogPaper_Id" ColumnName="BlogPaper_Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PaperType_Id" ColumnName="PaperType_Id" />
+                <ScalarProperty Name="BlogPaper_TitleName" ColumnName="BlogPaper_TitleName" />
+                <ScalarProperty Name="BlogPaper_PublishTime" ColumnName="BlogPaper_PublishTime" />
+                <ScalarProperty Name="BlogPaper_Contents" ColumnName="BlogPaper_Contents" />
+                <ScalarProperty Name="BlogPaper_Readings" ColumnName="BlogPaper_Readings" />
+                <ScalarProperty Name="BlogPaper_Comments" ColumnName="BlogPaper_Comments" />
+                <ScalarProperty Name="BlogPaper_Agreements" ColumnName="BlogPaper_Agreements" />
+                <ScalarProperty Name="BlogPaper_Opyright" ColumnName="BlogPaper_Opyright" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDetail">
+            <EntityTypeMapping TypeName="BKModel.UserDetail">
+              <MappingFragment StoreEntitySet="UserDetail">
+                <ScalarProperty Name="Detail_Id" ColumnName="Detail_Id" />
+                <ScalarProperty Name="Detail_Name" ColumnName="Detail_Name" />
+                <ScalarProperty Name="Detail_Sex" ColumnName="Detail_Sex" />
+                <ScalarProperty Name="Detail_Birthday" ColumnName="Detail_Birthday" />
+                <ScalarProperty Name="Detail_UserImg" ColumnName="Detail_UserImg" />
+                <ScalarProperty Name="Detail_Position" ColumnName="Detail_Position" />
+                <ScalarProperty Name="Detail_Region" ColumnName="Detail_Region" />
+                <ScalarProperty Name="Detail_Region2" ColumnName="Detail_Region2" />
+                <ScalarProperty Name="Detail_Region3" ColumnName="Detail_Region3" />
+                <ScalarProperty Name="Detail_Industry" ColumnName="Detail_Industry" />
+                <ScalarProperty Name="Detail_SelfIntro" ColumnName="Detail_SelfIntro" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="BKModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

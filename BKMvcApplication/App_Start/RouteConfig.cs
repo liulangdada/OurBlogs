@@ -16,7 +16,7 @@ namespace BKMvcApplication
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Problems", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Answer", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

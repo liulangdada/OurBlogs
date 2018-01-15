@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BKModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BKModelStoreContainer">
+    <EntitySet Name="Album" EntityType="BKModel.Store.Album" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Answer" EntityType="BKModel.Store.Answer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Articles" EntityType="BKModel.Store.Articles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogPaperComments" EntityType="BKModel.Store.BlogPaperComments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogPaperReply" EntityType="BKModel.Store.BlogPaperReply" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BlogPaperType" EntityType="BKModel.Store.BlogPaperType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConsumptionType" EntityType="BKModel.Store.ConsumptionType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Head" EntityType="BKModel.Store.Head" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ImageIndex" EntityType="BKModel.Store.ImageIndex" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Integral" EntityType="BKModel.Store.Integral" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IntegralRecord" EntityType="BKModel.Store.IntegralRecord" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Problems" EntityType="BKModel.Store.Problems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Problems_Type" EntityType="BKModel.Store.Problems_Type" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PublishBlogPaper" EntityType="BKModel.Store.PublishBlogPaper" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserDetail" EntityType="BKModel.Store.UserDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserInfo" EntityType="BKModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="alId" />
+    </Key>
+    <Property Name="alId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="alName" Type="varchar" MaxLength="200" />
+    <Property Name="alUrl" Type="varchar" MaxLength="100" />
+    <Property Name="alDetailId" Type="int" />
+  </EntityType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Answer_Id" />
+    </Key>
+    <Property Name="Answer_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Problems_Id" Type="int" />
+    <Property Name="Answer_UserId" Type="int" />
+    <Property Name="Answer_time" Type="datetime" />
+    <Property Name="Answer_Content" Type="text" />
+    <Property Name="Answer_agreeCount" Type="int" />
+    <Property Name="Answer_disagreeCount" Type="int" />
+  </EntityType>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="aId" />
+    </Key>
+    <Property Name="aId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="aName" Type="varchar" MaxLength="200" />
+    <Property Name="aType" Type="varchar" MaxLength="64" />
+    <Property Name="aAuthor" Type="varchar" MaxLength="32" />
+    <Property Name="aReleaseTime" Type="datetime" />
+    <Property Name="aRemark" Type="text" />
+    <Property Name="aAmountOfAccess" Type="int" />
+    <Property Name="aCommentNum" Type="int" />
+    <Property Name="adId" Type="int" />
+  </EntityType>
+  <EntityType Name="BlogPaperComments">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Name="Comment_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="BlogPaper_Id" Type="int" />
+    <Property Name="Comments_Url" Type="nvarchar" MaxLength="64" />
+    <Property Name="Comments_Time" Type="datetime" />
+    <Property Name="Comments_Agreements" Type="int" />
+  </EntityType>
+  <EntityType Name="BlogPaperReply">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Comment_Id" Type="int" />
+    <Property Name="Reply_Id" Type="int" />
+    <Property Name="Reply_type" Type="int" />
+    <Property Name="Reply_Content" Type="nvarchar" MaxLength="512" />
+    <Property Name="From_Id" Type="int" />
+    <Property Name="To_Uid" Type="int" />
+    <Property Name="Reply_Time" Type="datetime" />
+    <Property Name="Reply_Agreements" Type="int" />
+  </EntityType>
+  <EntityType Name="BlogPaperType">
+    <Key>
+      <PropertyRef Name="PaperType_Id" />
+    </Key>
+    <Property Name="PaperType_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PaperType_TitleName" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="ConsumptionType">
+    <Key>
+      <PropertyRef Name="CTid" />
+    </Key>
+    <Property Name="CTid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CTnamr" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Head">
+    <Key>
+      <PropertyRef Name="Head_Id" />
+    </Key>
+    <Property Name="Head_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Head_Title" Type="nvarchar" MaxLength="64" />
+    <Property Name="Head_Url" Type="nvarchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="ImageIndex">
+    <Key>
+      <PropertyRef Name="imgId" />
+    </Key>
+    <Property Name="imgId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="imgName" Type="varchar" MaxLength="64" />
+    <Property Name="imgUrl" Type="varchar" MaxLength="100" />
+    <Property Name="imgRemark" Type="text" />
+  </EntityType>
+  <EntityType Name="Integral">
+    <Key>
+      <PropertyRef Name="Iid" />
+    </Key>
+    <Property Name="Iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="int" />
+    <Property Name="oldTotal" Type="int" />
+    <Property Name="newTotal" Type="int" />
+    <Property Name="Consumption" Type="int" />
+  </EntityType>
+  <EntityType Name="IntegralRecord">
+    <Key>
+      <PropertyRef Name="IRid" />
+    </Key>
+    <Property Name="IRid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CTid" Type="int" />
+    <Property Name="Expenditure_id" Type="int" />
+    <Property Name="Income_id" Type="int" />
+    <Property Name="Transac" Type="int" />
+    <Property Name="IRtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Problems">
+    <Key>
+      <PropertyRef Name="Problems_Id" />
+    </Key>
+    <Property Name="Problems_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Problems_Type_Id" Type="int" />
+    <Property Name="Problems_UserId" Type="int" />
+    <Property Name="Problems_Time" Type="datetime" />
+    <Property Name="Problems_Title" Type="text" />
+    <Property Name="Problems_Content" Type="text" />
+    <Property Name="Problems_SeeCount" Type="int" />
+    <Property Name="Problems_CollectCount" Type="int" />
+    <Property Name="Problems_IsSolve" Type="int" />
+    <Property Name="Problems_Money" Type="int" />
+    <Property Name="Problems_BestAnswerId" Type="int" />
+  </EntityType>
+  <EntityType Name="Problems_Type">
+    <Key>
+      <PropertyRef Name="Problems_Type_Id" />
+    </Key>
+    <Property Name="Problems_Type_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Problems_Type_Name" Type="varchar" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="PublishBlogPaper">
+    <Key>
+      <PropertyRef Name="BlogPaper_Id" />
+    </Key>
+    <Property Name="BlogPaper_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="PaperType_Id" Type="int" />
+    <Property Name="BlogPaper_TitleName" Type="nvarchar" MaxLength="128" />
+    <Property Name="BlogPaper_PublishTime" Type="datetime" />
+    <Property Name="BlogPaper_Contents" Type="text" />
+    <Property Name="BlogPaper_Readings" Type="int" />
+    <Property Name="BlogPaper_Comments" Type="int" />
+    <Property Name="BlogPaper_Agreements" Type="int" />
+    <Property Name="BlogPaper_Opyright" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="UserDetail">
+    <Key>
+      <PropertyRef Name="Detail_Id" />
+    </Key>
+    <Property Name="Detail_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Detail_Name" Type="nvarchar" MaxLength="64" />
+    <Property Name="Detail_Sex" Type="int" />
+    <Property Name="Detail_Birthday" Type="datetime" />
+    <Property Name="Detail_UserImg" Type="varchar" MaxLength="64" />
+    <Property Name="Detail_Position" Type="nvarchar" MaxLength="64" />
+    <Property Name="Detail_Region" Type="nvarchar" MaxLength="64" />
+    <Property Name="Detail_Region2" Type="nvarchar" MaxLength="64" />
+    <Property Name="Detail_Region3" Type="nvarchar" MaxLength="64" />
+    <Property Name="Detail_Industry" Type="nvarchar" MaxLength="128" />
+    <Property Name="Detail_SelfIntro" Type="nvarchar" MaxLength="300" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserPhone" Type="varchar" MaxLength="11" />
+    <Property Name="UserName" Type="varchar" MaxLength="64" />
+    <Property Name="UserPwd" Type="varchar" MaxLength="64" />
+  </EntityType>
+</Schema>
